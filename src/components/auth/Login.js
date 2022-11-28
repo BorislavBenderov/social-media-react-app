@@ -1,11 +1,41 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { setPersistence, signInWithEmailAndPassword, browserSessionPersistence } from 'firebase/auth';
+import { auth } from '../../firebaseConfig';
 
 export const Login = () => {
+    const navigate = useNavigate();
+
+    const onLogin = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+
+        const email = formData.get('email');
+        const password = formData.get('password');
+
+        if (email === '' || password === '') {
+            alert('Please fill all the fields!');
+            return;
+        }
+
+        setPersistence(auth, browserSessionPersistence)
+            .then(() => {
+                signInWithEmailAndPassword(auth, email, password)
+                    .then(() => {
+                        navigate('/posts');
+                    })
+                    .catch((err) => {
+                        alert(err.message);
+                    })
+            })
+
+    }
+
     return (
         <div className="auth">
             <div className="auth__container">
                 <h1>Social Media</h1>
-                <form className="auth__form">
+                <form className="auth__form" onSubmit={onLogin}>
                     <label htmlFor="email" />
                     <input type="text" placeholder="Email" id="email" name="email" />
                     <label htmlFor="password" />
