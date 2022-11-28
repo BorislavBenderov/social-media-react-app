@@ -193,10 +193,18 @@ footer {
 
 .likes__coments {
     display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 5px;
 }
 
 .likes__coments p {
     margin: 5px
+}
+
+.likes__coments i {
+    margin-right: 5px;
+    color: black;
 }
 
 .name__description {

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Comments } from './comments/Comments';
+import { Likes } from './likes/Likes';
 
 export const Post = ({ post }) => {
     return (
@@ -17,15 +18,15 @@ export const Post = ({ post }) => {
                 alt=""
             />
             <div className="likes__coments">
-                <p>likes</p>
-                <p>comments</p>
+                <Likes post={post} />
+                <Link to={`/posts/${post.id}`}><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i></Link>
             </div>
             <div className="name__description">
                 <h3 className="content__card__name">{post.ownerName}</h3>
                 <p>{post.description}</p>
             </div>
             <Link className="view__all__comments" to={`/posts/${post.id}`}>view all comments</Link>
-            <Comments postId={post.id}/>
+            <Comments postId={post.id} />
         </div>
     );
 }
