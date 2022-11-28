@@ -131,9 +131,87 @@ input:focus {
 }
 
 footer {
-    position: fixed;
     text-align: center;
     bottom: 0;
     width: 100%;
     margin-bottom: 5px;
- }
+    padding-top: 10px;
+}
+
+.header__container {
+    padding: 5px 0;
+    border-bottom: 1px solid black;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+}
+
+.nav>li {
+    list-style: none;
+    margin-left: 10px;
+}
+
+.nav>li>a {
+    text-decoration: none;
+}
+
+.content__container {
+    width: 400px;
+    margin: auto;
+}
+
+.name__img {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+
+.name__img img {
+    margin-right: 10px;
+    max-width: 50px;
+}
+
+.content__card {
+    border: 1px solid black;
+    border-radius: 16px;
+    background-color: white;
+    width: 400px;
+    margin-top: 20px;
+}
+
+.content__card__img {
+    width: 400px;
+}
+
+.likes__coments {
+    display: flex;
+}
+
+.likes__coments p {
+    margin: 5px
+}
+
+.name__description {
+    display: flex;
+    margin: 5px;
+    align-items: center;
+}
+
+.name__description p {
+    margin-left: 5px;
+}
+
+.view__all__comments {
+    margin-left: 5px;
+}
+
+.comment__container {
+    padding: 5px;
+    margin-left: 10px;
+}
+
+button {
+    color: rgba(17, 17, 255, 0.527);
+}
