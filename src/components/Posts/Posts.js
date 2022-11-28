@@ -1,11 +1,27 @@
+import { Link, useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebaseConfig';
+
 export const Posts = () => {
+    const navigate = useNavigate();
+    
+    const onLogout = () => {
+        signOut(auth)
+            .then(() => {
+                navigate('/');
+            })
+            .catch((err) => {
+                alert(err.message);
+            })
+    }
+
     return (
         <main>
             <header class="header__container">
                 <ul class="nav">
                     <li><a href="">Create</a></li>
                     <li><a href="">Profile</a></li>
-                    <li><a href="">Logout</a></li>
+                    <li><Link to="#" onClick={onLogout}>Logout</Link></li>
                 </ul>
             </header>
             <section class="content__container">
