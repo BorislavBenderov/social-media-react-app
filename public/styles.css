@@ -270,3 +270,7 @@ button {
 .delete__comment {
     margin-left: 10px;
 }
+
+.likes__length {
+    margin-left: 20px;
+}

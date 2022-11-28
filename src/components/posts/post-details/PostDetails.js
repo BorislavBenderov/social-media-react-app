@@ -4,6 +4,7 @@ import { onSnapshot, doc } from 'firebase/firestore';
 import { database } from "../../../firebaseConfig";
 import { Comments } from "../comments/Comments";
 import { CommentCard } from "../comments/CommentCard";
+import { Likes } from "../likes/Likes";
 
 export const PostDetails = () => {
     const [currentPost, setCurrentPost] = useState([]);
@@ -39,8 +40,8 @@ export const PostDetails = () => {
                     {currentPost.comments?.map(comment => <CommentCard key={comment.id} comment={comment} postId={postId}/>)}
                 </div>
                 <div className="likes__coments">
-                    <p>likes</p>
-                    <p>comments</p>
+                <Likes post={currentPost} />
+                <i class="fa fa-comments-o fa-lg" aria-hidden="true"></i>
                 </div>
                 <Comments postId={currentPost.id}/>
             </div>

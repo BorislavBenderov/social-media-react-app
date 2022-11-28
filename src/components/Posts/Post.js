@@ -21,6 +21,11 @@ export const Post = ({ post }) => {
                 <Likes post={post} />
                 <Link to={`/posts/${post.id}`}><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i></Link>
             </div>
+            <div className="likes__length">
+                {post.likes.length > 0
+                    ? <p>Liked by {post.likes.length} people</p>
+                    : ''}
+            </div>
             <div className="name__description">
                 <h3 className="content__card__name">{post.ownerName}</h3>
                 <p>{post.description}</p>
