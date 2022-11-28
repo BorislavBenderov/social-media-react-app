@@ -7,6 +7,7 @@ import { Register } from './components/auth/Register';
 import { Footer } from './components/footer/Footer';
 import { Posts } from './components/posts/Posts';
 import { Create } from './components/create-edit/Create';
+import { PostDetails } from './components/posts/post-details/PostDetails';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path='/' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/posts' element={<Posts />} />
+            <Route path='/posts/:postId' element={<PostDetails />} />
             <Route path='/create' element={<Create />} />
           </Routes>
           <Footer />

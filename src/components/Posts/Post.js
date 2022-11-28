@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export const Post = ({ post }) => {
     return (
         <div className="content__card">
@@ -21,7 +23,7 @@ export const Post = ({ post }) => {
                 <h3 className="content__card__name">{post.ownerName}</h3>
                 <p>{post.description}</p>
             </div>
-            <p className="view__all__comments">view all comments</p>
+            <Link className="view__all__comments" to={`/posts/${post.id}`}>view all comments</Link>
             <div className="comment__container">
                 <form>
                     <label htmlFor="comment" />

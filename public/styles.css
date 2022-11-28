@@ -221,3 +221,35 @@ footer {
 button {
     color: rgba(17, 17, 255, 0.527);
 }
+
+.postdetails__container {
+    display: flex;
+    width: 1000px;
+    margin: auto;
+}
+
+.postdetails__image {
+    margin-top: 20px;
+}
+
+.postdetails__image img {
+    border-radius: 16px 0 0 16px;
+}
+
+.postdetails__card {
+    border-radius: 0 16px 16px 0;
+    background-color: white;
+    width: 400px;
+    margin-top: 20px;
+}
+
+.comment__img {
+    max-width: 50px;
+}
+
+.comments__section {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 300px;
+}
