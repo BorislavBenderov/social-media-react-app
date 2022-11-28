@@ -36,13 +36,13 @@ export const PostDetails = () => {
                     <p>{currentPost.description}</p>
                 </div>
                 <div className="comments__section">
-                    {currentPost.comments?.map(comment => <CommentCard key={comment.id} comment={comment}/>)}
+                    {currentPost.comments?.map(comment => <CommentCard key={comment.id} comment={comment} postId={postId}/>)}
                 </div>
                 <div className="likes__coments">
                     <p>likes</p>
                     <p>comments</p>
                 </div>
-                <Comments postId={postId}/>
+                <Comments postId={currentPost.id}/>
             </div>
         </section>
     );

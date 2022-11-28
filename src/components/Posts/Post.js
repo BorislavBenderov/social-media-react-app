@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Comments } from './comments/Comments';
 
 export const Post = ({ post }) => {
     return (
@@ -24,18 +25,7 @@ export const Post = ({ post }) => {
                 <p>{post.description}</p>
             </div>
             <Link className="view__all__comments" to={`/posts/${post.id}`}>view all comments</Link>
-            <div className="comment__container">
-                <form>
-                    <label htmlFor="comment" />
-                    <input
-                        type="text"
-                        id="comment"
-                        name="comment"
-                        placeholder="Add a comment..."
-                    />
-                    <button>post</button>
-                </form>
-            </div>
+            <Comments postId={post.id}/>
         </div>
     );
 }
