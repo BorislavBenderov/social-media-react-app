@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { onSnapshot, doc } from 'firebase/firestore';
 import { database } from "../../../firebaseConfig";
+import { Comments } from "../comments/Comments";
+import { CommentCard } from "../comments/CommentCard";
 
 export const PostDetails = () => {
     const [currentPost, setCurrentPost] = useState([]);
@@ -34,65 +36,13 @@ export const PostDetails = () => {
                     <p>{currentPost.description}</p>
                 </div>
                 <div className="comments__section">
-                    <div className="name__img">
-                        <img
-                            src={currentPost.ownerImage}
-                            alt=""
-                        />
-                        <p className="comment">nice</p>
-                    </div>
-                    <div className="name__img">
-                        <img
-                            src={currentPost.ownerImage}
-                            alt=""
-                        />
-                        <p className="comment">nice</p>
-                    </div>
-                    <div className="name__img">
-                        <img
-                            src={currentPost.ownerImage}
-                            alt=""
-                        />
-                        <p className="comment">nice</p>
-                    </div>
-                    <div className="name__img">
-                        <img
-                            src={currentPost.ownerImage}
-                            alt=""
-                        />
-                        <p className="comment">nice</p>
-                    </div>
-                    <div className="name__img">
-                        <img
-                            src={currentPost.ownerImage}
-                            alt=""
-                        />
-                        <p className="comment">nice</p>
-                    </div>
-                    <div className="name__img">
-                        <img
-                            src={currentPost.ownerImage}
-                            alt=""
-                        />
-                        <p className="comment">nice</p>
-                    </div>
+                    {currentPost.comments?.map(comment => <CommentCard key={comment.id} comment={comment}/>)}
                 </div>
                 <div className="likes__coments">
                     <p>likes</p>
                     <p>comments</p>
                 </div>
-                <div className="comment__container">
-                    <form>
-                        <label htmlFor="comment" />
-                        <input
-                            type="text"
-                            id="comment"
-                            name="comment"
-                            placeholder="Add a comment..."
-                        />
-                        <button>post</button>
-                    </form>
-                </div>
+                <Comments postId={postId}/>
             </div>
         </section>
     );

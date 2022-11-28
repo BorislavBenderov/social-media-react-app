@@ -253,3 +253,8 @@ button {
     overflow-y: scroll;
     height: 300px;
 }
+
+.comment__name {
+    margin-right: 10px;
+    font-weight: bold;
+}
