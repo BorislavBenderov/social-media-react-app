@@ -24,7 +24,7 @@ export const Posts = () => {
             <header className="header__container">
                 <ul className="nav">
                     <li>
-                        <a href="">Create</a>
+                        <Link to="/create">Create</Link>
                     </li>
                     <li>
                         <a href="">Profile</a>

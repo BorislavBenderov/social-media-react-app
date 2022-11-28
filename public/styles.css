@@ -93,11 +93,15 @@ input:focus {
     flex-direction: column;
 }
 
-.auth__form input {
+.auth__form input, .auth__form textarea {
     margin-bottom: 10px;
     padding: 5px 10px;
     border-radius: 8px;
     border: 1px solid black;
+}
+
+.auth__form textarea {
+    height: 200px;
 }
 
 .auth__form input::placeholder {

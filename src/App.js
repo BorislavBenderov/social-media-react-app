@@ -5,7 +5,8 @@ import { PostContextProvider } from './contexts/PostContext';
 import { Login } from './components/auth/Login';
 import { Register } from './components/auth/Register';
 import { Footer } from './components/footer/Footer';
-import { Posts } from './components/Posts/Posts';
+import { Posts } from './components/posts/Posts';
+import { Create } from './components/create-edit/Create';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path='/' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/posts' element={<Posts />} />
+            <Route path='/create' element={<Create />} />
           </Routes>
           <Footer />
         </PostContextProvider>

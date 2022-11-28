@@ -50,13 +50,13 @@ export const Register = () => {
                                     image: downloadUrl,
                                     uid: res.user.uid
                                 })
+                                navigate('/posts')
                             })
+                            .catch((err) => {
+                                alert(err.message);
+                            });
                     })
-                navigate('/posts')
             })
-            .catch((err) => {
-                alert(err.message);
-            });
     }
 
 
