@@ -6,16 +6,16 @@ export const Register = () => {
             <div className="auth__container">
                 <h1>Social Media</h1>
                 <form className="auth__form">
-                    <label htmlfor="email" />
+                    <label htmlFor="email" />
                     <input type="text" placeholder="Email" id="email" name="email" />
-                    <label htmlfor="password" />
+                    <label htmlFor="password" />
                     <input
                         type="password"
                         placeholder="Password"
                         id="password"
                         name="password"
                     />
-                    <label htmlfor="repeatPassword" />
+                    <label htmlFor="repeatPassword" />
                     <input
                         type="password"
                         placeholder="Repeat Password"
