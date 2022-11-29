@@ -32,8 +32,8 @@ export const Likes = ({ post }) => {
     }
 
     return (
-        <i className={`fa fa-heart${!post.likes?.includes(loggedUser.uid) ? '-o' : ''} fa-lg`}
-            style={{ cursor: 'pointer', color: post.likes?.includes(loggedUser.uid) ? 'red' : null }}
+        <i className={`fa fa-heart${!post.likes?.includes(loggedUser?.uid) ? '-o' : ''} fa-lg`}
+            style={{ cursor: 'pointer', color: post.likes?.includes(loggedUser?.uid) ? 'red' : null }}
             onClick={likeHandler}
         ></i>
     );

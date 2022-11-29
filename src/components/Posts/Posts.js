@@ -4,9 +4,11 @@ import { auth } from '../../firebaseConfig';
 import { useContext } from 'react';
 import { PostContext } from '../../contexts/PostContext';
 import { Post } from './Post';
+import { AuthContext } from '../../contexts/AuthContext';
 
 export const Posts = () => {
     const { posts } = useContext(PostContext);
+    const { loggedUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const onLogout = () => {
@@ -27,7 +29,7 @@ export const Posts = () => {
                         <Link to="/create">Create</Link>
                     </li>
                     <li>
-                        <a href="">Profile</a>
+                        <Link to={`/profile/${loggedUser.uid}`}>Profile</Link>
                     </li>
                     <li>
                         <Link to="#" onClick={onLogout}>Logout</Link>
@@ -35,9 +37,8 @@ export const Posts = () => {
                 </ul>
             </header>
             <section className="content__container">
-                {posts.map(post => <Post key={post.id} post={post}/>)}
+                {posts.map(post => <Post key={post.id} post={post} />)}
             </section>
         </main>
-
     );
 }

@@ -37,13 +37,18 @@ export const PostDetails = () => {
                     <p>{currentPost.description}</p>
                 </div>
                 <div className="comments__section">
-                    {currentPost.comments?.map(comment => <CommentCard key={comment.id} comment={comment} postId={postId}/>)}
+                    {currentPost.comments?.map(comment => <CommentCard key={comment.id} comment={comment} postId={postId} />)}
                 </div>
                 <div className="likes__coments">
-                <Likes post={currentPost} />
-                <i class="fa fa-comments-o fa-lg" aria-hidden="true"></i>
+                    <Likes post={currentPost} />
+                    <i className="fa fa-comments-o fa-lg" aria-hidden="true"></i>
                 </div>
-                <Comments postId={currentPost.id}/>
+                <div className="likes__length">
+                    {currentPost.likes?.length > 0
+                        ? <p>Liked by {currentPost.likes.length} people</p>
+                        : ''}
+                </div>
+                <Comments postId={currentPost.id} />
             </div>
         </section>
     );

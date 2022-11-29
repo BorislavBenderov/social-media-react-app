@@ -5,13 +5,15 @@ import { Likes } from './likes/Likes';
 export const Post = ({ post }) => {
     return (
         <div className="content__card">
-            <div className="name__img">
-                <img
-                    src={post.ownerImage}
-                    alt=""
-                />
-                <h3 className="content__card__name">{post.ownerName}</h3>
-            </div>
+            <Link to={`/profile/${post.ownerId}`}>
+                <div className="name__img">
+                    <img
+                        src={post.ownerImage}
+                        alt=""
+                    />
+                    <h3 className="content__card__name">{post.ownerName}</h3>
+                </div>
+            </Link>
             <img
                 className="content__card__img"
                 src={post.image}
@@ -19,7 +21,7 @@ export const Post = ({ post }) => {
             />
             <div className="likes__coments">
                 <Likes post={post} />
-                <Link to={`/posts/${post.id}`}><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i></Link>
+                <Link to={`/posts/${post.id}`}><i className="fa fa-comments-o fa-lg" aria-hidden="true"></i></Link>
             </div>
             <div className="likes__length">
                 {post.likes.length > 0
