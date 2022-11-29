@@ -1,14 +1,24 @@
-import { useContext } from "react";
+import { onSnapshot, doc, } from "firebase/firestore";
+import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { UserContext } from "../../contexts/UserContext";
+import { database } from "../../firebaseConfig";
 
 export const Chat = () => {
-    const { users } = useContext(UserContext);
+    const [messages, setMessages] = useState([]);
+    const { users, chatId } = useContext(UserContext);
     const { loggedUser } = useContext(AuthContext);
     const { userId } = useParams();
-
     const userProfile = users.find(user => user.uid === userId);
+
+    useEffect(() => {
+        onSnapshot(doc(database, 'chats', chatId), (snapshot) => {
+            setMessages(snapshot.data().messages.map((item) => {
+                return { ...item };
+            }));
+        });
+    }, [chatId]);
 
     return (
         <div className="messanger">
@@ -24,7 +34,7 @@ export const Chat = () => {
             <section className="messanger__messages">
                 <h2>{userProfile?.displayName}</h2>
                 <div className="messages__container">
-                    
+
                 </div>
                 <div className="message__input">
                     <form>
