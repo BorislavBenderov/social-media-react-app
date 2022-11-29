@@ -1,8 +1,8 @@
-export const Messages = () => {
+export const Messages = ({ message }) => {
     return (
         <div className="message">
-            <img src="" alt="" />
-            <p>Hello world</p>
+            <img src={message.image} alt="" />
+            <p>{message.message}</p>
         </div>
     );
 }

@@ -13,15 +13,15 @@ export const UserProfile = () => {
     const { posts } = useContext(PostContext);
     const { loggedUser } = useContext(AuthContext);
     const { userId } = useParams();
+
     const userProfile = users.find(user => user.uid === userId);
     const userPosts = posts.filter(post => post.ownerId === userId);
 
+    const combinedId = loggedUser?.uid > userProfile?.uid
+        ? loggedUser?.uid + userProfile?.uid
+        : userProfile?.uid + loggedUser?.uid;
+
     const handleSelect = async () => {
-        const combinedId = loggedUser.uid > userProfile.uid
-            ? loggedUser.uid + userProfile.uid
-            : userProfile.uid + loggedUser.uid;
-
-
         try {
             const res = await getDoc(doc(database, 'chats', combinedId));
 
@@ -30,7 +30,7 @@ export const UserProfile = () => {
                     messages: []
                 })
             }
-            setChatId(combinedId);
+
         } catch (error) {
             alert(error.message);
         }
@@ -48,7 +48,7 @@ export const UserProfile = () => {
                         {loggedUser.uid !== userProfile?.uid
                             ? <Followers userProfile={userProfile} />
                             : ''}
-                        <Link to={`/messages/${userProfile.uid}`} onClick={handleSelect}>Message</Link>
+                        <Link to={`/messages/${combinedId}`} onClick={handleSelect}>Message</Link>
                     </div>
                     <div className="posts__followers">
                         {userPosts.length === 1

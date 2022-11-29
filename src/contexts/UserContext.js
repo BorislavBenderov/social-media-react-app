@@ -6,7 +6,6 @@ export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
     const [users, setUsers] = useState([]);
-    const [chatId, setChatId] = useState('');
 
     useEffect(() => {
         const q = query(collection(database, 'users'), orderBy("displayName"));
@@ -18,7 +17,7 @@ export const UserContextProvider = ({ children }) => {
     }, []);
 
     return (
-        <UserContext.Provider value={{ users, chatId, setChatId }}>
+        <UserContext.Provider value={{ users }}>
             {children}
         </UserContext.Provider>
     );

@@ -4,13 +4,16 @@ import { useParams } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { UserContext } from "../../contexts/UserContext";
 import { database } from "../../firebaseConfig";
+import { CreateMessage } from "./CreateMessage";
+import { Messages } from "./Messages";
+
 
 export const Chat = () => {
     const [messages, setMessages] = useState([]);
-    const { users, chatId } = useContext(UserContext);
+    const { users } = useContext(UserContext);
     const { loggedUser } = useContext(AuthContext);
-    const { userId } = useParams();
-    const userProfile = users.find(user => user.uid === userId);
+    const { chatId } = useParams();
+    const userProfile = users.filter(user => chatId.includes(user.uid)).find(user => user.uid !== loggedUser.uid);
 
     useEffect(() => {
         onSnapshot(doc(database, 'chats', chatId), (snapshot) => {
@@ -18,7 +21,7 @@ export const Chat = () => {
                 return { ...item };
             }));
         });
-    }, [chatId]);
+    }, []);
 
     return (
         <div className="messanger">
@@ -34,13 +37,10 @@ export const Chat = () => {
             <section className="messanger__messages">
                 <h2>{userProfile?.displayName}</h2>
                 <div className="messages__container">
-
+                    {messages.map(message => <Messages key={message.id} message={message}/>)}
                 </div>
                 <div className="message__input">
-                    <form>
-                        <label htmlFor="message"></label>
-                        <textarea name="message" id="message"></textarea>
-                    </form>
+                    <CreateMessage chatId={chatId} />
                 </div>
             </section>
         </div>
