@@ -1,10 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import { database, storage } from '../../firebaseConfig';
+import { database, storage } from '../../../firebaseConfig';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/AuthContext';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 export const Create = () => {
     const { loggedUser } = useContext(AuthContext);

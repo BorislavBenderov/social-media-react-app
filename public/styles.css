@@ -325,8 +325,7 @@ button {
     border: 1px solid black;
 }
 
-.messanger__users img,
-.message img {
+.messanger__users img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -376,4 +375,18 @@ button {
     color: white;
     border-radius: 20px;
     padding: 5px;
+}
+
+.message__photo {
+    width: 200px;
+    height: 150px;
+    border-radius: 8px;
+}
+
+.message__img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
 }

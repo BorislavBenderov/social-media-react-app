@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { UserContext } from '../../../contexts/UserContext';
-import { PostContext } from '../../../contexts/PostContext';
+import { UserContext } from '../../contexts/UserContext';
+import { PostContext } from '../../contexts/PostContext';
 import { Link, useParams } from "react-router-dom";
-import { Post } from "../Post";
+import { Post } from "../posts/Post";
 import { Followers } from "./Followers";
-import { AuthContext } from "../../../contexts/AuthContext";
+import { AuthContext } from "../../contexts/AuthContext";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { database } from "../../../firebaseConfig";
+import { database } from "../../firebaseConfig";
 
 export const UserProfile = () => {
     const { users } = useContext(UserContext);

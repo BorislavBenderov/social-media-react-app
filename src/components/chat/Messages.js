@@ -32,8 +32,13 @@ export const Messages = ({ message, likes }) => {
 
     return (
         <div className="message" style={{ flexDirection: currentUserMessages ? 'row-reverse' : '' }}>
-            <img src={message.image} alt="" />
-            <p style={{ backgroundColor: currentUserMessages ? 'blueviolet' : 'gray' }}>{message.message}</p>
+            <img src={message.image} className='message__img' alt="" />
+            {message.message
+                ? <p style={{ backgroundColor: currentUserMessages ? 'blueviolet' : 'gray' }}>{message.message}</p>
+                : ''}
+            {message.photo
+                ? <img src={message.photo} className='message__photo' alt="" />
+                : ""}
             <i className={`fa fa-heart${!likes?.includes(message.id) ? '-o' : ''} fa-lg`}
                 style={{ cursor: 'pointer', color: likes?.includes(message.id) ? 'red' : null, marginLeft: '5px', marginRight: '5px' }}
                 onClick={!currentUserMessages ? likeHandler : null}

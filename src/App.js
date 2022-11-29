@@ -6,9 +6,9 @@ import { Login } from './components/auth/Login';
 import { Register } from './components/auth/Register';
 import { Footer } from './components/footer/Footer';
 import { Posts } from './components/posts/Posts';
-import { Create } from './components/create-edit/Create';
+import { Create } from './components/posts/create-edit/Create';
 import { PostDetails } from './components/posts/post-details/PostDetails';
-import { UserProfile } from './components/posts/user-profile/UserProfile';
+import { UserProfile } from './components/user-profile/UserProfile';
 import { UserContextProvider } from './contexts/UserContext';
 import { Chat } from './components/chat/Chat';
 
