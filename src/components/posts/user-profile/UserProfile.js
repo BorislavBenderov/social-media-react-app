@@ -9,7 +9,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { database } from "../../../firebaseConfig";
 
 export const UserProfile = () => {
-    const { users, setChatId } = useContext(UserContext);
+    const { users } = useContext(UserContext);
     const { posts } = useContext(PostContext);
     const { loggedUser } = useContext(AuthContext);
     const { userId } = useParams();

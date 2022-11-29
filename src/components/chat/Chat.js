@@ -10,6 +10,7 @@ import { Messages } from "./Messages";
 
 export const Chat = () => {
     const [messages, setMessages] = useState([]);
+    const [likes, setLikes] = useState([]);
     const { users } = useContext(UserContext);
     const { loggedUser } = useContext(AuthContext);
     const { chatId } = useParams();
@@ -20,8 +21,9 @@ export const Chat = () => {
             setMessages(snapshot.data().messages.map((item) => {
                 return { ...item };
             }));
+            setLikes(snapshot.data().likes);
         });
-    }, []);
+    }, [chatId]);
 
     return (
         <div className="messanger">
@@ -37,7 +39,7 @@ export const Chat = () => {
             <section className="messanger__messages">
                 <h2>{userProfile?.displayName}</h2>
                 <div className="messages__container">
-                    {messages.map(message => <Messages key={message.id} message={message}/>)}
+                    {messages.map(message => <Messages key={message.id} message={message} likes={likes}/>)}
                 </div>
                 <div className="message__input">
                     <CreateMessage chatId={chatId} />

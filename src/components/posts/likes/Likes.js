@@ -7,27 +7,23 @@ import { database } from "../../../firebaseConfig";
 export const Likes = ({ post }) => {
     const { loggedUser } = useContext(AuthContext);
 
-    const likeHandler = () => {
+    const likeHandler = async () => {
         if (post.likes?.includes(loggedUser.uid)) {
-            updateDoc(doc(database, 'posts', post.id), {
-                likes: arrayRemove(loggedUser.uid)
-            })
-                .then(() => {
-                    console.log('unliked');
-                })
-                .catch((err) => {
-                    alert(err.message);
-                })
+            try {
+                await updateDoc(doc(database, 'posts', post.id), {
+                    likes: arrayRemove(loggedUser.uid)
+                });
+            } catch (error) {
+                alert(error.message);
+            }
         } else {
-            updateDoc(doc(database, 'posts', post.id), {
-                likes: arrayUnion(loggedUser.uid)
-            })
-                .then(() => {
-                    console.log('liked');
-                })
-                .catch((err) => {
-                    alert(err.message);
-                })
+            try {
+                await updateDoc(doc(database, 'posts', post.id), {
+                    likes: arrayUnion(loggedUser.uid)
+                });
+            } catch (error) {
+                alert(error.message)
+            }
         }
     }
 
