@@ -11,7 +11,7 @@ export const UserContextProvider = ({ children }) => {
         const q = query(collection(database, 'users'), orderBy("displayName"));
         onSnapshot(q, (snapshot) => {
             setUsers(snapshot.docs.map((item) => {
-                return { ...item.data() };
+                return { ...item.data(), id: item.id };
             }));
         });
     }, []);
