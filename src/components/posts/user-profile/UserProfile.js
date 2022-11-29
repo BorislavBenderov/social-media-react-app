@@ -28,8 +28,9 @@ export const UserProfile = () => {
                             ? <p>{userPosts.length} post</p>
                             : <p>{userPosts.length} posts</p>}
                         {userProfile?.followers?.length === 1
-                            ? <p>{userProfile?.followers.length} followers</p>
+                            ? <p>{userProfile?.followers.length} follower</p>
                             : <p>{userProfile?.followers.length} followers</p>}
+                        <p>{userProfile?.following.length} following</p>
                     </div>
                     {loggedUser.uid !== userProfile?.uid
                         ? <Followers userProfile={userProfile} />

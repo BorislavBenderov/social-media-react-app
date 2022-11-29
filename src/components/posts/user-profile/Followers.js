@@ -11,9 +11,15 @@ export const Followers = ({ userProfile }) => {
             await updateDoc(doc(database, 'users', userProfile.id), {
                 followers: arrayRemove(loggedUser.uid)
             });
+            await updateDoc(doc(database, 'users', loggedUser.uid), {
+                following: arrayRemove(userProfile.id)
+            });
         } else {
             await updateDoc(doc(database, 'users', userProfile.id), {
                 followers: arrayUnion(loggedUser.uid)
+            });
+            await updateDoc(doc(database, 'users', loggedUser.uid), {
+                following: arrayUnion(userProfile.id)
             });
         }
     }
