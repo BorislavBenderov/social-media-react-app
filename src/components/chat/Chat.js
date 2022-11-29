@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { AuthContext } from "../../../contexts/AuthContext";
-import { UserContext } from "../../../contexts/UserContext";
+import { AuthContext } from "../../contexts/AuthContext";
+import { UserContext } from "../../contexts/UserContext";
 
-export const Messages = () => {
+export const Chat = () => {
     const { users } = useContext(UserContext);
     const { loggedUser } = useContext(AuthContext);
     const { userId } = useParams();
@@ -24,10 +24,7 @@ export const Messages = () => {
             <section className="messanger__messages">
                 <h2>{userProfile?.displayName}</h2>
                 <div className="messages__container">
-                    <div className="message">
-                        <img src={userProfile?.image} alt="" />
-                        <p>Hello world</p>
-                    </div>
+                    
                 </div>
                 <div className="message__input">
                     <form>

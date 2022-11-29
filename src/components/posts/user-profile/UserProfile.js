@@ -5,16 +5,37 @@ import { Link, useParams } from "react-router-dom";
 import { Post } from "../Post";
 import { Followers } from "./Followers";
 import { AuthContext } from "../../../contexts/AuthContext";
-import { Messages } from "./Messages";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { database } from "../../../firebaseConfig";
 
 export const UserProfile = () => {
-    const { users } = useContext(UserContext);
+    const { users, setChatId } = useContext(UserContext);
     const { posts } = useContext(PostContext);
     const { loggedUser } = useContext(AuthContext);
     const { userId } = useParams();
 
     const userProfile = users.find(user => user.uid === userId);
     const userPosts = posts.filter(post => post.ownerId === userId);
+
+    const handleSelect = async () => {
+        const combinedId = loggedUser.uid > userProfile.uid
+            ? loggedUser.uid + userProfile.uid
+            : userProfile.uid + loggedUser.uid;
+
+        try {
+            const res = await getDoc(doc(database, 'chats', combinedId));
+
+            if (!res.exists()) {
+                await setDoc(doc(database, 'chats', combinedId), {
+                    messages: []
+                })
+            }
+
+            setChatId(combinedId);
+        } catch (error) {
+            alert(error.message);
+        }
+    }
 
     return (
         <section className="content__container">
@@ -28,7 +49,7 @@ export const UserProfile = () => {
                         {loggedUser.uid !== userProfile?.uid
                             ? <Followers userProfile={userProfile} />
                             : ''}
-                        <Link to={`/messages/${userId}`}>Message</Link>
+                        <Link to={`/messages/${userId}`} onClick={handleSelect}>Message</Link>
                     </div>
                     <div className="posts__followers">
                         {userPosts.length === 1
