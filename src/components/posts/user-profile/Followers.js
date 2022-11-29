@@ -25,6 +25,6 @@ export const Followers = ({ userProfile }) => {
     }
 
     return (
-        <button onClick={followHandler}>follow</button>
+        <button onClick={followHandler}>Follow</button>
     );
 }

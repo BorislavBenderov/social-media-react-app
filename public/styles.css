@@ -294,3 +294,82 @@ button {
 .profile__info__img img {
     border-radius: 50%;
 }
+
+.posts__followers {
+    display: flex;
+    justify-content: space-between;
+}
+
+.posts__followers p {
+    margin-right: 20px;
+}
+
+.name__follow__message {
+    display: flex;
+}
+
+.messanger {
+    display: flex;
+    max-width: 800px;
+    height: 600px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.messanger__users {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    border: 1px solid black;
+}
+
+.messanger__users img, .message img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.messanger__otherusers {
+    display: flex;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.messanger__curentuser {
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.messanger__messages {
+    width: 70%;
+}
+
+.messanger__messages {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.messanger__messages h2 {
+    border-bottom: 1px solid black;
+}
+
+.messages__container {
+    border-bottom: 1px solid black;
+    height: 520px;
+}
+
+.message {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.message p {
+    border-radius: 20px;
+    border: 1px solid black;
+    padding: 5px;
+}

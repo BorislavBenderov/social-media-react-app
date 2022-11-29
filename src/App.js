@@ -10,6 +10,7 @@ import { Create } from './components/create-edit/Create';
 import { PostDetails } from './components/posts/post-details/PostDetails';
 import { UserProfile } from './components/posts/user-profile/UserProfile';
 import { UserContextProvider } from './contexts/UserContext';
+import { Messages } from './components/posts/user-profile/Messages';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route path='/' element={<Login />} />
               <Route path='/register' element={<Register />} />
               <Route path='/profile/:userId' element={<UserProfile />} />
+              <Route path='/messages/:userId' element={<Messages />} />
               <Route path='/posts' element={<Posts />} />
               <Route path='/posts/:postId' element={<PostDetails />} />
               <Route path='/create' element={<Create />} />

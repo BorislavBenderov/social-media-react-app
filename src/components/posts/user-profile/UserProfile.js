@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { UserContext } from '../../../contexts/UserContext';
 import { PostContext } from '../../../contexts/PostContext';
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Post } from "../Post";
 import { Followers } from "./Followers";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { Messages } from "./Messages";
 
 export const UserProfile = () => {
     const { users } = useContext(UserContext);
@@ -22,7 +23,13 @@ export const UserProfile = () => {
                     <img src={userProfile?.image} alt="" />
                 </div>
                 <div className="profile__info__details">
-                    <h1>{userProfile?.displayName}</h1>
+                    <div className="name__follow__message">
+                        <h3>{userProfile?.displayName}</h3>
+                        {loggedUser.uid !== userProfile?.uid
+                            ? <Followers userProfile={userProfile} />
+                            : ''}
+                        <Link to={`/messages/${userId}`}>Message</Link>
+                    </div>
                     <div className="posts__followers">
                         {userPosts.length === 1
                             ? <p>{userPosts.length} post</p>
@@ -32,9 +39,6 @@ export const UserProfile = () => {
                             : <p>{userProfile?.followers.length} followers</p>}
                         <p>{userProfile?.following.length} following</p>
                     </div>
-                    {loggedUser.uid !== userProfile?.uid
-                        ? <Followers userProfile={userProfile} />
-                        : ''}
                 </div>
             </div>
             {userPosts.map(post => <Post key={post.id} post={post} />)}
