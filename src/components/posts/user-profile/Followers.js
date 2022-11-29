@@ -33,6 +33,6 @@ export const Followers = ({ userProfile }) => {
     }
 
     return (
-        <button onClick={followHandler}>Follow</button>
+        <button onClick={followHandler}>{userProfile?.followers?.includes(loggedUser.uid) ? 'Following' : 'Follow'}</button>
     );
 }

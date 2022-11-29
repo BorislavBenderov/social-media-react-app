@@ -46,9 +46,9 @@ export const UserProfile = () => {
                     <div className="name__follow__message">
                         <h3>{userProfile?.displayName}</h3>
                         {loggedUser.uid !== userProfile?.uid
-                            ? <Followers userProfile={userProfile} />
+                            ? <><Followers userProfile={userProfile} />
+                                <Link to={`/messages/${combinedId}`} onClick={handleSelect}>Message</Link></>
                             : ''}
-                        <Link to={`/messages/${combinedId}`} onClick={handleSelect}>Message</Link>
                     </div>
                     <div className="posts__followers">
                         {userPosts.length === 1

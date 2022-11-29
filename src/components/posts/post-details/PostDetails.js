@@ -5,6 +5,7 @@ import { database } from "../../../firebaseConfig";
 import { Comments } from "../comments/Comments";
 import { CommentCard } from "../comments/CommentCard";
 import { Likes } from "../likes/Likes";
+import { Link } from "react-router-dom";
 
 export const PostDetails = () => {
     const [currentPost, setCurrentPost] = useState([]);
@@ -26,13 +27,15 @@ export const PostDetails = () => {
                 />
             </div>
             <div className="postdetails__card">
-                <div className="name__img">
-                    <img
-                        src={currentPost.ownerImage}
-                        alt=""
-                    />
-                    <h3 className="content__card__name">{currentPost.ownerName}</h3>
-                </div>
+                <Link to={`/profile/${currentPost.ownerId}`}>
+                    <div className="name__img">
+                        <img
+                            src={currentPost.ownerImage}
+                            alt=""
+                        />
+                        <h3 className="content__card__name">{currentPost.ownerName}</h3>
+                    </div>
+                </Link>
                 <div className="name__description">
                     <p>{currentPost.description}</p>
                 </div>

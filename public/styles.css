@@ -93,7 +93,8 @@ input:focus {
     flex-direction: column;
 }
 
-.auth__form input, .auth__form textarea {
+.auth__form input,
+.auth__form textarea {
     margin-bottom: 10px;
     padding: 5px 10px;
     border-radius: 8px;
@@ -258,7 +259,7 @@ button {
 .comments__section {
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow: auto;
     height: 300px;
 }
 
@@ -324,7 +325,8 @@ button {
     border: 1px solid black;
 }
 
-.messanger__users img, .message img {
+.messanger__users img,
+.message img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
