@@ -275,3 +275,22 @@ button {
     margin-left: 20px;
     margin-top: 10px;
 }
+
+.profile__info {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 16px 16px 0 0;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: white;
+}
+
+.profile__info__img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.profile__info__img img {
+    border-radius: 50%;
+}
