@@ -29,7 +29,7 @@ export const Posts = () => {
                         <Link to="/create">Create</Link>
                     </li>
                     <li>
-                        <Link to={`/profile/${loggedUser.uid}`}>Profile</Link>
+                        <Link to={`/profile/${loggedUser?.uid}`}>Profile</Link>
                     </li>
                     <li>
                         <Link to="#" onClick={onLogout}>Logout</Link>

@@ -310,6 +310,7 @@ button {
 
 .messanger {
     display: flex;
+    background-color: white;
     max-width: 800px;
     height: 600px;
     margin: auto;
@@ -328,6 +329,7 @@ button {
     height: 50px;
     border-radius: 50%;
     margin-left: 10px;
+    margin-right: 10px;
 }
 
 .messanger__otherusers {
@@ -369,7 +371,7 @@ button {
 }
 
 .message p {
+    color: white;
     border-radius: 20px;
-    border: 1px solid black;
     padding: 5px;
 }

@@ -19,7 +19,8 @@ export const CreateMessage = ({ chatId }) => {
             messages: arrayUnion({
                 message: input,
                 id: uuidv4(),
-                image: loggedUser.photoURL
+                image: loggedUser.photoURL,
+                uid: loggedUser.uid
             })
         })
             .then(() => {
@@ -28,15 +29,15 @@ export const CreateMessage = ({ chatId }) => {
     }
 
     return (
-        <form onClick={onCreateMessage}>
+        <form onSubmit={onCreateMessage}>
             <label htmlFor="message"></label>
-            <textarea
+            <input
                 name="message"
                 id="message"
                 placeholder="Message..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}>
-            </textarea>
+            </input>
             <button>click</button>
         </form>
     );
