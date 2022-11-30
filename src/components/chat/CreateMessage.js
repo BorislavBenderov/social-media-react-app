@@ -5,10 +5,10 @@ import { database, storage } from "../../firebaseConfig";
 import { v4 as uuidv4 } from 'uuid';
 import { AuthContext } from "../../contexts/AuthContext";
 
-export const CreateMessage = ({ chatId }) => {
-    const [input, setInput] = useState(null);
+export const CreateMessage = ({ chatId, scroll }) => {
+    const [input, setInput] = useState('');
     const { loggedUser } = useContext(AuthContext);
-
+    
     const onCreateMessage = (e) => {
         e.preventDefault();
 
@@ -22,6 +22,7 @@ export const CreateMessage = ({ chatId }) => {
         })
             .then(() => {
                 setInput('');
+                scroll.current.scrollIntoView({ behavior: 'smooth' });
             })
             .catch((err) => {
                 alert(err.message);
@@ -55,6 +56,7 @@ export const CreateMessage = ({ chatId }) => {
                         })
                             .then(() => {
                                 setInput('');
+                                scroll.current.scrollIntoView({ behavior: 'smooth' });
                             })
                             .catch((err) => {
                                 alert(err.message);

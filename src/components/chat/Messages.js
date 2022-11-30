@@ -4,7 +4,7 @@ import { arrayRemove, arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { database } from "../../firebaseConfig";
 import { useParams } from "react-router-dom";
 
-export const Messages = ({ message, likes }) => {
+export const Messages = ({ message, likes, scroll }) => {
     const { loggedUser } = useContext(AuthContext);
     const { chatId } = useParams();
 
@@ -31,7 +31,7 @@ export const Messages = ({ message, likes }) => {
     }
 
     return (
-        <div className="message" style={{ flexDirection: currentUserMessages ? 'row-reverse' : '' }}>
+        <div className="message" style={{ flexDirection: currentUserMessages ? 'row-reverse' : '' }} ref={scroll}>
             <img src={message.image} className='message__img' alt="" />
             {message.message
                 ? <p style={{ backgroundColor: currentUserMessages ? 'blueviolet' : 'gray' }}>{message.message}</p>

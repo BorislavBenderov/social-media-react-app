@@ -39,7 +39,7 @@ export const PostDetails = () => {
                         <h3 className="content__card__name">{currentPost.ownerName}</h3>
                     </Link>
                     <Link to={'/posts'} className='details__close'>
-                        <i class="fa fa-times-circle fa-lg" aria-hidden="true" style={{ color: "black" }}></i>
+                        <i className="fa fa-times-circle fa-lg" aria-hidden="true" style={{ color: "black" }}></i>
                     </Link>
                 </div>
 

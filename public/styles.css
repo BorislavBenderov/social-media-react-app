@@ -373,6 +373,8 @@ button {
 }
 
 .messages__container {
+    display: flex;
+    flex-direction: column;
     border-bottom: 1px solid black;
     height: 450px;
     overflow: auto;
