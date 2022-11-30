@@ -250,6 +250,7 @@ button {
 .postdetails__card {
     border-radius: 0 16px 16px 0;
     background-color: white;
+    border: 1px solid black;
     width: 400px;
     margin-top: 20px;
 }
@@ -263,6 +264,8 @@ button {
     flex-direction: column;
     overflow: auto;
     height: 300px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .comment__name {
@@ -314,10 +317,12 @@ button {
 .messanger {
     display: flex;
     background-color: white;
-    max-width: 800px;
+    max-width: 500px;
     height: 600px;
     margin: auto;
     margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 16px;
 }
 
 .messanger__users {
@@ -364,22 +369,12 @@ button {
 }
 
 .messanger__messages {
-    width: 70%;
-}
-
-.messanger__messages {
-    border-top: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-}
-
-.messanger__messages h2 {
-    border-bottom: 1px solid black;
+    width: 100%;
 }
 
 .messages__container {
     border-bottom: 1px solid black;
-    height: 520px;
+    height: 450px;
     overflow: auto;
 }
 
@@ -443,4 +438,37 @@ button {
     color: white;
     border: 1px solid black;
     border-radius: 16px;
+}
+
+.otheruser__mess__img {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 5px 0;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.message__input form {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+textarea {
+    resize: none;
+    width: 90%;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 16px;
+    height: 70px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+textarea::-webkit-input-placeholder {
+    position: absolute;
+    left: 20px;
 }

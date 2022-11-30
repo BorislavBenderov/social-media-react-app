@@ -27,19 +27,13 @@ export const Chat = () => {
 
     return (
         <div className="messanger">
-            <section className="messanger__users">
-                <div className="messanger__curentuser">
-                    <h2>{loggedUser.displayName}</h2>
-                </div>
-                <div className="messanger__currusers">
-                    <img src={userProfile?.image} alt="" />
+            <section className="messanger__messages">
+                <div className="otheruser__mess__img">
+                    <img className="message__img" src={userProfile?.image} alt="" />
                     <h2>{userProfile?.displayName}</h2>
                 </div>
-            </section>
-            <section className="messanger__messages">
-                <h2>{userProfile?.displayName}</h2>
                 <div className="messages__container">
-                    {messages.map(message => <Messages key={message.id} message={message} likes={likes}/>)}
+                    {messages.map(message => <Messages key={message.id} message={message} likes={likes} />)}
                 </div>
                 <div className="message__input">
                     <CreateMessage chatId={chatId} />
