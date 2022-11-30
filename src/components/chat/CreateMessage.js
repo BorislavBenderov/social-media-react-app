@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { AuthContext } from "../../contexts/AuthContext";
 
 export const CreateMessage = ({ chatId }) => {
-    const [input, setInput] = useState('');
+    const [input, setInput] = useState(null);
     const { loggedUser } = useContext(AuthContext);
 
     const onCreateMessage = (e) => {
@@ -64,7 +64,7 @@ export const CreateMessage = ({ chatId }) => {
     }
 
     return (
-        <form onKeyDown={(e) => e.key === "Enter" ? onCreateMessage(e) : null}>
+        <form onSubmit={onCreateMessage} onKeyDown={(e) => e.key === "Enter" ? onCreateMessage(e) : null}>
             <label htmlFor="message"></label>
             <textarea
                 name="message"
@@ -73,14 +73,18 @@ export const CreateMessage = ({ chatId }) => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
             />
-            <label htmlFor="image">
-                <i className="fa fa-picture-o fa-lg" aria-hidden="true"></i>
-            </label>
-            <input
-                type="file"
-                name="image"
-                id="image"
-                onChange={(e) => onUploadFile(e)} />
+            {!input
+                ? <>
+                    <label htmlFor="image">
+                        <i className="fa fa-picture-o fa-lg" aria-hidden="true" style={{ cursor: "pointer" }}></i>
+                    </label>
+                    <input
+                        type="file"
+                        name="image"
+                        id="image"
+                        onChange={(e) => onUploadFile(e)} />
+                </>
+                : <button className="send" type="submit">Send</button>}
         </form>
     );
 }

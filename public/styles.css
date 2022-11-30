@@ -472,3 +472,8 @@ textarea::-webkit-input-placeholder {
     position: absolute;
     left: 20px;
 }
+
+.send {
+    font-weight: 600;
+    margin-right: 10px;
+}
