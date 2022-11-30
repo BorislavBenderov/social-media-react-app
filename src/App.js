@@ -13,6 +13,7 @@ import { UserContextProvider } from './contexts/UserContext';
 import { Chat } from './components/chat/Chat';
 import { Messanger } from './components/chat/Messanger';
 import { HeaderLayout } from './components/react-router/HeaderLayout';
+import { ProtectedRoutes } from './components/react-router/ProtectedRoutes';
 
 function App() {
   return (
@@ -21,13 +22,15 @@ function App() {
         <PostContextProvider>
           <UserContextProvider>
             <Routes>
-              <Route element={<HeaderLayout />}>
-                <Route path='/profile/:userId' element={<UserProfile />} />
-                <Route path='/messages/:chatId' element={<Chat />} />
-                <Route path='/messages' element={<Messanger />} />
-                <Route path='/posts' element={<Posts />} />
-                <Route path='/posts/:postId' element={<PostDetails />} />
-                <Route path='/create' element={<Create />} />
+              <Route element={<ProtectedRoutes />}>
+                <Route element={<HeaderLayout />}>
+                  <Route path='/profile/:userId' element={<UserProfile />} />
+                  <Route path='/messages/:chatId' element={<Chat />} />
+                  <Route path='/messages' element={<Messanger />} />
+                  <Route path='/posts' element={<Posts />} />
+                  <Route path='/posts/:postId' element={<PostDetails />} />
+                  <Route path='/create' element={<Create />} />
+                </Route>
               </Route>
               <Route path='/' element={<Login />} />
               <Route path='/register' element={<Register />} />
