@@ -22,6 +22,9 @@ export const Header = () => {
         <header className="header__container">
             <ul className="nav">
                 <li>
+                    <Link to="/posts">Home</Link>
+                </li>
+                <li>
                     <Link to="/messages">Messages</Link>
                 </li>
                 <li>
