@@ -502,6 +502,27 @@ textarea::-webkit-input-placeholder {
     margin-right: 10px;
 }
 
+@media screen and (max-width: 1000px) {
+    .postdetails__container {
+        flex-direction: column;
+        width: 400px;
+    }
+
+    .postdetails__image {
+        width: 400px;
+
+    }
+
+    .postdetails__image img {
+        border-radius: 16px 16px 0 0;
+    }
+
+    .postdetails__card {
+        margin-top: 0;
+        border-radius: 0 0 16px 16px;
+    }
+}
+
 @media screen and (max-width: 450px) {
     .content__container {
         width: 350px;
@@ -514,4 +535,21 @@ textarea::-webkit-input-placeholder {
     .content__card__img {
         width: 348px;
     }
+
+    .postdetails__container {
+        width: 300px;
+    }
+
+    .postdetails__image {
+        width: 300px;
+    }
+
+    .postdetails__card {
+        width: 300px;
+    }
+
+    .details__close {
+        margin-left: 95px;
+    }
+
 }
