@@ -31,7 +31,7 @@ export const Chat = () => {
                 <div className="messanger__curentuser">
                     <h2>{loggedUser.displayName}</h2>
                 </div>
-                <div className="messanger__otherusers">
+                <div className="messanger__currusers">
                     <img src={userProfile?.image} alt="" />
                     <h2>{userProfile?.displayName}</h2>
                 </div>

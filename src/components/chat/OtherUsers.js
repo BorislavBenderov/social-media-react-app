@@ -27,9 +27,13 @@ export const OtherUsers = ({ user }) => {
     }
 
     return (
-        <Link to={`/messages/${combinedId}`} onClick={handleSelect}><div className="messanger__otherusers" key={user.id}>
-            <img src={user.image} alt="" />
-            <h2>{user.displayName}</h2>
-        </div></Link>
+        <div className="messanger__otherusers" key={user.id}>
+            <Link to={`/messages/${combinedId}`} onClick={handleSelect}>
+                <img src={user.image} alt="" />
+            </Link>
+            <Link to={`/messages/${combinedId}`} onClick={handleSelect}>
+                <h2>{user.displayName}</h2>
+            </Link>
+        </div >
     );
 }

@@ -161,6 +161,7 @@ footer {
 
 .nav>li>a {
     text-decoration: none;
+    padding: 5px;
 }
 
 .content__container {
@@ -336,15 +337,30 @@ button {
 
 .messanger__otherusers {
     display: flex;
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 16px;
     margin-top: 10px;
     align-items: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 5px;
 }
 
 .messanger__curentuser {
     border-bottom: 1px solid black;
     text-align: center;
+}
+
+.messanger__currusers {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 16px;
+    margin-top: 10px;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 5px;
 }
 
 .messanger__messages {
@@ -400,13 +416,14 @@ button {
     height: 600px;
     margin: auto;
     margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 16px;
 }
 
 .messanger__allusers {
     display: flex;
     flex-direction: column;
     width: 100%;
-    border: 1px solid black;
 }
 
 .messanger__allusers img {
@@ -419,4 +436,11 @@ button {
 
 .details__close {
     margin-left: 190px;
+}
+
+.nav>li>a:focus {
+    background-color: rgba(17, 17, 255, 0.527);
+    color: white;
+    border: 1px solid black;
+    border-radius: 16px;
 }
