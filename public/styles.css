@@ -213,6 +213,7 @@ footer {
 .name__description {
     display: flex;
     margin: 5px;
+    margin-left: 20px;
     align-items: center;
 }
 
@@ -221,11 +222,28 @@ footer {
 }
 
 .view__all__comments {
-    margin-left: 5px;
+    margin-left: 20px;
 }
 
 .comment__container {
     padding: 5px;
+    margin-left: 10px;
+}
+
+.comment__container form {
+    display: flex;
+}
+
+.comment__textarea {
+    resize: none;
+    width: 80%;
+    height: 60px;
+    border-radius: 16px;
+    padding-left: 20px;
+}
+
+.post__comment__btn {
+    font-weight: 600;
     margin-left: 10px;
 }
 
@@ -459,7 +477,7 @@ input[type="file"] {
     margin-left: 10px;
 }
 
-textarea {
+.textarea {
     resize: none;
     width: 90%;
     margin-right: 10px;
@@ -468,6 +486,11 @@ textarea {
     height: 70px;
     padding-left: 20px;
     padding-top: 10px;
+}
+
+.textarea__post {
+    resize: none;
+    width: 400px;
 }
 
 textarea::-webkit-input-placeholder {

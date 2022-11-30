@@ -8,7 +8,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 export const CreateMessage = ({ chatId, scroll }) => {
     const [input, setInput] = useState('');
     const { loggedUser } = useContext(AuthContext);
-    
+
     const onCreateMessage = (e) => {
         e.preventDefault();
 
@@ -69,6 +69,7 @@ export const CreateMessage = ({ chatId, scroll }) => {
         <form onSubmit={onCreateMessage} onKeyDown={(e) => e.key === "Enter" ? onCreateMessage(e) : null}>
             <label htmlFor="message"></label>
             <textarea
+                className="textarea"
                 name="message"
                 id="message"
                 placeholder="Message..."

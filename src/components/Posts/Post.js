@@ -32,7 +32,7 @@ export const Post = ({ post }) => {
                 <h3 className="content__card__name">{post.ownerName}</h3>
                 <p>{post.description}</p>
             </div>
-            <Link className="view__all__comments" to={`/posts/${post.id}`}>view all comments</Link>
+            <Link className="view__all__comments" to={`/posts/${post.id}`}>view comments</Link>
             <Comments postId={post.id} />
         </div>
     );

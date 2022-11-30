@@ -2,11 +2,12 @@ import { v4 as uuidv4 } from 'uuid';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { database, storage } from '../../../firebaseConfig';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 
 export const Create = () => {
+    const [isFileAdd, setIsFileAdd] = useState(false);
     const { loggedUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -19,7 +20,7 @@ export const Create = () => {
         const description = formData.get('description');
 
         if (image.name === '') {
-            alert('Please fill all the fields');
+            alert('Please add a file!');
             return;
         }
 
@@ -63,16 +64,24 @@ export const Create = () => {
                 <form className="auth__form" onSubmit={onCreate}>
                     <label htmlFor="description" />
                     <textarea
+                        className='textarea__post'
                         type="text"
                         placeholder="Write a description..."
                         id="description"
                         name="description" />
-                    <label htmlFor="image" />
+                    <label htmlFor="image">
+                        <i
+                            className="fa fa-picture-o fa-lg"
+                            aria-hidden="true"
+                            style={{ cursor: "pointer" }}>
+                            {isFileAdd ? "File is added!" : "Add a file"}</i>
+                    </label>
                     <input
                         type="file"
                         placeholder="Choose a picture"
                         id="image"
                         name="image"
+                        onChange={() => setIsFileAdd(true)}
                     />
                     <button type="submit">Create</button>
                 </form>

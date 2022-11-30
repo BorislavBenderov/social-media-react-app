@@ -37,7 +37,8 @@ export const Comments = ({ postId }) => {
         <div className="comment__container">
             <form onSubmit={onComment}>
                 <label htmlFor="comment" />
-                <input
+                <textarea
+                className="comment__textarea"
                     type="text"
                     id="comment"
                     name="comment"
@@ -45,7 +46,7 @@ export const Comments = ({ postId }) => {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                 />
-                <button>post</button>
+                <button type="submit" className="post__comment__btn">post</button>
             </form>
         </div>
     );
