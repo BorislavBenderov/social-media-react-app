@@ -22,19 +22,29 @@ export const Header = () => {
         <header className="header__container">
             <ul className="nav">
                 <li>
-                    <Link to="/posts">Home</Link>
+                    <Link to="/posts">
+                        <i className="fa fa-home fa-lg" aria-hidden="true"></i>
+                    </Link>
                 </li>
                 <li>
-                    <Link to="/messages">Messages</Link>
+                    <Link to="/messages">
+                        <i className="fa fa-paper-plane fa-lg" aria-hidden="true"></i>
+                    </Link>
                 </li>
                 <li>
-                    <Link to="/create">Create</Link>
+                    <Link to="/create">
+                        <i className="fa fa-plus fa-lg" aria-hidden="true"></i>
+                    </Link>
                 </li>
                 <li>
-                    <Link to={`/profile/${loggedUser?.uid}`}>Profile</Link>
+                    <Link to={`/profile/${loggedUser?.uid}`}>
+                        <i className="fa fa-user fa-lg" aria-hidden="true"></i>
+                    </Link>
                 </li>
                 <li>
-                    <Link to="#" onClick={onLogout}>Logout</Link>
+                    <Link to="#" onClick={onLogout}>
+                        <i className="fa fa-sign-out fa-lg" aria-hidden="true"></i>
+                    </Link>
                 </li>
             </ul>
         </header>

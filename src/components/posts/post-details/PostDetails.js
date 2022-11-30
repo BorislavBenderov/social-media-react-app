@@ -29,12 +29,10 @@ export const PostDetails = () => {
             <div className="postdetails__card">
 
                 <div className="name__img">
-                    <Link to={`/profile/${currentPost.ownerId}`}>
                         <img
                             src={currentPost.ownerImage}
                             alt=""
                         />
-                    </Link>
                     <Link to={`/profile/${currentPost.ownerId}`}>
                         <h3 className="content__card__name">{currentPost.ownerName}</h3>
                     </Link>
