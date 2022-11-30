@@ -14,7 +14,7 @@ export const Chat = () => {
     const { users } = useContext(UserContext);
     const { loggedUser } = useContext(AuthContext);
     const { chatId } = useParams();
-    const userProfile = users.filter(user => chatId.includes(user.uid)).find(user => user.uid !== loggedUser.uid);
+    const userProfile = users.filter(user => chatId.includes(user.uid)).find(user => user.uid !== loggedUser?.uid);
 
     useEffect(() => {
         onSnapshot(doc(database, 'chats', chatId), (snapshot) => {

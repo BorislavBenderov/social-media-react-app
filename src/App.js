@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { AuthContextProvider } from './contexts/AuthContext';
 import { PostContextProvider } from './contexts/PostContext';
 
+import { Header } from './components/header/Header';
 import { Login } from './components/auth/Login';
 import { Register } from './components/auth/Register';
 import { Footer } from './components/footer/Footer';
@@ -19,6 +20,7 @@ function App() {
       <AuthContextProvider>
         <PostContextProvider>
           <UserContextProvider>
+            <Header />
             <Routes>
               <Route path='/' element={<Login />} />
               <Route path='/register' element={<Register />} />

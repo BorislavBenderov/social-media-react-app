@@ -27,7 +27,9 @@ export const CommentCard = ({ comment, postId }) => {
             <p className="comment__name">{comment.ownerName}</p>
             <p className="comment">{comment.comment}</p>
             {commentOwner
-                ? <button className="delete__comment" onClick={deleteComment}>x</button>
+                ? <button className="delete__comment" onClick={deleteComment}>
+                    <i class="fa fa-times" aria-hidden="true" style={{ color: "black" }}></i>
+                </button>
                 : ''}
         </div>
     );

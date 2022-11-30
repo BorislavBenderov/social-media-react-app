@@ -27,15 +27,22 @@ export const PostDetails = () => {
                 />
             </div>
             <div className="postdetails__card">
-                <Link to={`/profile/${currentPost.ownerId}`}>
-                    <div className="name__img">
+
+                <div className="name__img">
+                    <Link to={`/profile/${currentPost.ownerId}`}>
                         <img
                             src={currentPost.ownerImage}
                             alt=""
                         />
+                    </Link>
+                    <Link to={`/profile/${currentPost.ownerId}`}>
                         <h3 className="content__card__name">{currentPost.ownerName}</h3>
-                    </div>
-                </Link>
+                    </Link>
+                    <Link to={'/posts'} className='details__close'>
+                        <i class="fa fa-times-circle fa-lg" aria-hidden="true" style={{ color: "black" }}></i>
+                    </Link>
+                </div>
+
                 <div className="name__description">
                     <p>{currentPost.description}</p>
                 </div>
