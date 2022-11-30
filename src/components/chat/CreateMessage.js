@@ -20,34 +20,53 @@ export const CreateMessage = ({ chatId }) => {
             return;
         }
 
-        const storageRef = ref(storage, `photos/${uuidv4()}`);
-        const uploadTask = uploadBytesResumable(storageRef, image);
-        uploadTask.on('state_changed',
-            (snapshot) => {
-            },
-            (err) => {
-                alert(err.message);
-            },
-            () => {
-                getDownloadURL(uploadTask.snapshot.ref)
-                    .then((downloadUrl) => {
-                        updateDoc(doc(database, 'chats', chatId), {
-                            messages: arrayUnion({
-                                message: input,
-                                id: uuidv4(),
-                                image: loggedUser.photoURL,
-                                uid: loggedUser.uid,
-                                photo: downloadUrl
+        if (image.name !== '') {
+            const storageRef = ref(storage, `photos/${uuidv4()}`);
+            const uploadTask = uploadBytesResumable(storageRef, image);
+            uploadTask.on('state_changed',
+                (snapshot) => {
+                },
+                (err) => {
+                    alert(err.message);
+                },
+                () => {
+                    getDownloadURL(uploadTask.snapshot.ref)
+                        .then((downloadUrl) => {
+                            updateDoc(doc(database, 'chats', chatId), {
+                                messages: arrayUnion({
+                                    message: input,
+                                    id: uuidv4(),
+                                    image: loggedUser.photoURL,
+                                    uid: loggedUser.uid,
+                                    photo: downloadUrl
+                                })
                             })
+                                .then(() => {
+                                    setInput('');
+                                })
+                                .catch((err) => {
+                                    alert(err.message);
+                                })
                         })
-                            .then(() => {
-                                setInput('');
-                            })
-                            .catch((err) => {
-                                alert(err.message);
-                            })
-                    })
+                })
+
+        } else {
+            updateDoc(doc(database, 'chats', chatId), {
+                messages: arrayUnion({
+                    message: input,
+                    id: uuidv4(),
+                    image: loggedUser.photoURL,
+                    uid: loggedUser.uid,
+                })
             })
+                .then(() => {
+                    setInput('');
+                })
+                .catch((err) => {
+                    alert(err.message);
+                })
+        }
+
 
     }
 

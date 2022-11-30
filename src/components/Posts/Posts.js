@@ -26,6 +26,9 @@ export const Posts = () => {
             <header className="header__container">
                 <ul className="nav">
                     <li>
+                        <Link to="/messages">Messages</Link>
+                    </li>
+                    <li>
                         <Link to="/create">Create</Link>
                     </li>
                     <li>

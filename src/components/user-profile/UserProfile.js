@@ -52,12 +52,12 @@ export const UserProfile = () => {
                     </div>
                     <div className="posts__followers">
                         {userPosts.length === 1
-                            ? <p>{userPosts.length} post</p>
-                            : <p>{userPosts.length} posts</p>}
+                            ? <p>{userPosts?.length} post</p>
+                            : <p>{userPosts?.length} posts</p>}
                         {userProfile?.followers?.length === 1
-                            ? <p>{userProfile?.followers.length} follower</p>
-                            : <p>{userProfile?.followers.length} followers</p>}
-                        <p>{userProfile?.following.length} following</p>
+                            ? <p>{userProfile?.followers?.length} follower</p>
+                            : <p>{userProfile?.followers?.length} followers</p>}
+                        <p>{userProfile?.following?.length} following</p>
                     </div>
                 </div>
             </div>

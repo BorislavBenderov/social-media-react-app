@@ -363,6 +363,7 @@ button {
 .messages__container {
     border-bottom: 1px solid black;
     height: 520px;
+    overflow: auto;
 }
 
 .message {
@@ -384,6 +385,30 @@ button {
 }
 
 .message__img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.messanger__cont {
+    display: flex;
+    background-color: white;
+    max-width: 400px;
+    height: 600px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.messanger__allusers {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.messanger__allusers img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
