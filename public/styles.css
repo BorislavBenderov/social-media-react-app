@@ -160,6 +160,7 @@ footer {
 }
 
 .nav>li>a {
+    color: black;
     text-decoration: none;
     padding: 5px;
 }
@@ -213,7 +214,6 @@ footer {
 .name__description {
     display: flex;
     margin: 5px;
-    margin-left: 20px;
     align-items: center;
 }
 
@@ -222,12 +222,11 @@ footer {
 }
 
 .view__all__comments {
-    margin-left: 20px;
+    margin-left: 5px;
 }
 
 .comment__container {
     padding: 5px;
-    margin-left: 10px;
 }
 
 .comment__container form {
@@ -236,7 +235,7 @@ footer {
 
 .comment__textarea {
     resize: none;
-    width: 80%;
+    width: 90%;
     height: 60px;
     border-radius: 16px;
     padding-left: 20px;
@@ -296,7 +295,7 @@ button {
 }
 
 .likes__length {
-    margin-left: 20px;
+    margin-left: 5px;
     margin-top: 10px;
 }
 
@@ -501,4 +500,18 @@ textarea::-webkit-input-placeholder {
 .send {
     font-weight: 600;
     margin-right: 10px;
+}
+
+@media screen and (max-width: 450px) {
+    .content__container {
+        width: 350px;
+    }
+
+    .content__card {
+        width: 350px;
+    }
+
+    .content__card__img {
+        width: 348px;
+    }
 }
