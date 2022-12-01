@@ -174,11 +174,17 @@ footer {
     margin: 5px;
 }
 
-.name__img img {
+.name__img img, .postdet img {
     margin-right: 10px;
     max-width: 50px;
     max-height: 50px;
     border-radius: 50%;
+}
+
+.postdet {
+    display: flex;
+    align-items: center;
+    margin: 5px;
 }
 
 .fa-trash {
@@ -260,6 +266,7 @@ button {
 
 .postdetails__image {
     margin-top: 20px;
+    width: 50%;
 }
 
 .postdetails__image img {
@@ -270,7 +277,7 @@ button {
     border-radius: 0 16px 16px 0;
     background-color: white;
     border: 1px solid black;
-    width: 400px;
+    width: 50%;
     margin-top: 20px;
 }
 
@@ -529,6 +536,7 @@ textarea::-webkit-input-placeholder {
     .postdetails__card {
         margin-top: 0;
         border-radius: 0 0 16px 16px;
+        width: 400px;
     }
 }
 

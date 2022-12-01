@@ -19,7 +19,7 @@ export const CommentCard = ({ comment, postId }) => {
     }
 
     return (
-        <div className="name__img">
+        <div className="postdet">
             <img
                 src={comment.ownerImage}
                 alt=""
