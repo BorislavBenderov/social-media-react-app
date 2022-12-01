@@ -438,6 +438,7 @@ button {
     display: flex;
     flex-direction: column;
     width: 100%;
+    overflow: auto;
 }
 
 .messanger__allusers img {
@@ -554,6 +555,11 @@ textarea::-webkit-input-placeholder {
 
     .textarea__post {
         width: 255px;
+    }
+
+    .messanger__cont {
+        max-width: 320px;
+        height: 550px;
     }
 
 }
