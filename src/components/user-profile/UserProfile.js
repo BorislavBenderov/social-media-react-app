@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { Profiler, useContext } from "react";
 import { UserContext } from '../../contexts/UserContext';
 import { PostContext } from '../../contexts/PostContext';
 import { Link, useParams } from "react-router-dom";
@@ -48,7 +48,7 @@ export const UserProfile = () => {
                         {loggedUser.uid !== userProfile?.uid
                             ? <><Followers userProfile={userProfile} />
                                 <Link to={`/messages/${combinedId}`} onClick={handleSelect}>Message</Link></>
-                            : ''}
+                            : <Link to={`/edit/profile/${userProfile.uid}`}><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></Link>}
                     </div>
                     <div className="posts__followers">
                         {userPosts.length === 1
@@ -58,6 +58,9 @@ export const UserProfile = () => {
                             ? <p>{userProfile?.followers?.length} follower</p>
                             : <p>{userProfile?.followers?.length} followers</p>}
                         <p>{userProfile?.following?.length} following</p>
+                    </div>
+                    <div className="profile__description">
+                        <p>{userProfile?.profileDescription}</p>
                     </div>
                 </div>
             </div>

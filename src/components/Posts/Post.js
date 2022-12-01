@@ -2,7 +2,6 @@ import { deleteDoc, doc } from 'firebase/firestore';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
-import { UserContext } from '../../contexts/UserContext';
 import { database } from '../../firebaseConfig';
 import { Comments } from './comments/Comments';
 import { Likes } from './likes/Likes';

@@ -14,6 +14,7 @@ import { Chat } from './components/chat/Chat';
 import { Messanger } from './components/chat/Messanger';
 import { HeaderLayout } from './components/react-router/HeaderLayout';
 import { ProtectedRoutes } from './components/react-router/ProtectedRoutes';
+import { EditUser } from './components/user-profile/EditUser';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route element={<ProtectedRoutes />}>
                 <Route element={<HeaderLayout />}>
                   <Route path='/profile/:userId' element={<UserProfile />} />
+                  <Route path='/edit/profile/:userId' element={<EditUser />} />
                   <Route path='/messages/:chatId' element={<Chat />} />
                   <Route path='/messages' element={<Messanger />} />
                   <Route path='/posts' element={<Posts />} />

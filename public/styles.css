@@ -331,6 +331,12 @@ button {
 
 .name__follow__message {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name__follow__message a {
+    color: black;
 }
 
 .messanger {
@@ -500,6 +506,11 @@ textarea::-webkit-input-placeholder {
     margin-right: 10px;
 }
 
+.profile__description {
+    width: 278px;
+    margin-top: 10px;
+}
+
 @media screen and (max-width: 1000px) {
     .postdetails__container {
         flex-direction: column;
@@ -557,6 +568,10 @@ textarea::-webkit-input-placeholder {
     .messanger__cont {
         max-width: 320px;
         height: 550px;
+    }
+
+    .profile__description {
+        width: 235px;
     }
 
 }

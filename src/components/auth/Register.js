@@ -121,6 +121,5 @@ export const Register = () => {
                 <Link to="/">Log in</Link>
             </div>
         </div>
-
     );
 }
