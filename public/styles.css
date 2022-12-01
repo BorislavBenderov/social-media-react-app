@@ -172,6 +172,7 @@ footer {
 
 .name__img {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     margin: 5px;
 }
@@ -181,6 +182,10 @@ footer {
     max-width: 50px;
     max-height: 50px;
     border-radius: 50%;
+}
+
+.fa-trash {
+    cursor: pointer;
 }
 
 .content__card {
@@ -447,10 +452,6 @@ button {
     border-radius: 50%;
     margin-left: 10px;
     margin-right: 10px;
-}
-
-.details__close {
-    margin-left: 170px;
 }
 
 .nav>li>a:focus {

@@ -1,19 +1,40 @@
+import { deleteDoc, doc } from 'firebase/firestore';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
+import { UserContext } from '../../contexts/UserContext';
+import { database } from '../../firebaseConfig';
 import { Comments } from './comments/Comments';
 import { Likes } from './likes/Likes';
 
 export const Post = ({ post }) => {
+    const { loggedUser } = useContext(AuthContext);
+
+    const userOwner = post.ownerId === loggedUser.uid;
+
+    const onDeletePost = async () => {
+        const confirmation = window.confirm('Are you sure you want to delete this post?');
+
+        if (confirmation) {
+            deleteDoc(doc(database, 'posts', post.id));
+        }
+    }
+
     return (
         <div className="content__card">
-            <Link to={`/profile/${post.ownerId}`}>
-                <div className="name__img">
-                    <img
-                        src={post.ownerImage}
-                        alt=""
-                    />
+            <div className="name__img">
+                <img
+                    src={post.ownerImage}
+                    alt=""
+                />
+                <Link to={`/profile/${post.ownerId}`}>
                     <h3 className="content__card__name">{post.ownerName}</h3>
-                </div>
-            </Link>
+                </Link>
+                {userOwner
+                    ? <i className="fa fa-trash fa-lg" aria-hidden="true" onClick={onDeletePost}></i>
+                    : <i></i>}
+
+            </div>
             <img
                 className="content__card__img"
                 src={post.image}
@@ -34,6 +55,6 @@ export const Post = ({ post }) => {
             </div>
             <Link className="view__all__comments" to={`/posts/${post.id}`}>view comments</Link>
             <Comments postId={post.id} />
-        </div>
+        </div >
     );
 }
