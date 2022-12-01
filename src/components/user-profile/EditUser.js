@@ -47,8 +47,8 @@ export const EditUser = () => {
             return;
         }
 
-        if (username.length > 2 || username.length < 10) {
-            alert('Username must be more then 2 characters and less then 10!');
+        if (username.length < 2 || username.length > 10) {
+            alert('Username must be more than 2 characters and less then 10!');
             return;
         }
 

@@ -40,6 +40,11 @@ export const Register = () => {
             return;
         }
 
+        if (username.length < 2 || username.length > 10) {
+            alert('Username must be more than 2 characters and less then 10!');
+            return;
+        }
+
         setPersistence(auth, browserSessionPersistence)
             .then(async () => {
                 const res = await createUserWithEmailAndPassword(auth, email, password);
