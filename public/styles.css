@@ -65,9 +65,8 @@ a {
 
 /* MAIN CSS */
 .auth {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 10%);
+    width: 335px;
+    margin: 50px auto;
 }
 
 textarea:focus,
@@ -136,9 +135,7 @@ input:focus {
 }
 
 footer {
-    position: fixed;
     text-align: center;
-    bottom: 0;
     width: 100%;
     margin-bottom: 5px;
     padding-top: 10px;
@@ -491,7 +488,6 @@ input[type="file"] {
 
 .textarea__post {
     resize: none;
-    width: 400px;
 }
 
 textarea::-webkit-input-placeholder {
