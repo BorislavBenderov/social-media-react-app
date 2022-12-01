@@ -191,6 +191,11 @@ footer {
     cursor: pointer;
 }
 
+.fa-pencil-square-o {
+    cursor: pointer;
+    color: black;
+}
+
 .content__card {
     border: 1px solid black;
     border-radius: 16px;

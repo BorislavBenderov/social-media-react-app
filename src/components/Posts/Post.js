@@ -33,8 +33,17 @@ export const Post = ({ post }) => {
                     <h3 className="content__card__name">{userInfo?.displayName}</h3>
                 </Link>
                 {userOwner
-                    ? <i className="fa fa-trash fa-lg" aria-hidden="true" onClick={onDeletePost}></i>
-                    : <i></i>}
+                    ? <>
+                        <Link to={`/edit/posts/${post.id}`}>
+                            <i className="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
+                        </Link>
+                        <i className="fa fa-trash fa-lg" aria-hidden="true" onClick={onDeletePost}></i>
+                    </>
+                    : <>
+                        <i></i>
+                        <i></i>
+                    </>
+                }
 
             </div>
             <img
@@ -52,7 +61,7 @@ export const Post = ({ post }) => {
                     : ''}
             </div>
             <div className="name__description">
-                <h3 className="content__card__name">{post.ownerName}</h3>
+                <h3 className="content__card__name">{userInfo?.displayName}</h3>
                 <p>{post.description}</p>
             </div>
             <Link className="view__all__comments" to={`/posts/${post.id}`}>view comments</Link>

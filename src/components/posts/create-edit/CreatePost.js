@@ -6,7 +6,7 @@ import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 
-export const Create = () => {
+export const CreatePost = () => {
     const [isFileAdd, setIsFileAdd] = useState(false);
     const { loggedUser } = useContext(AuthContext);
     const navigate = useNavigate();

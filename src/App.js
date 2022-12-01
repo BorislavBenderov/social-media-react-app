@@ -6,7 +6,7 @@ import { Login } from './components/auth/Login';
 import { Register } from './components/auth/Register';
 import { Footer } from './components/footer/Footer';
 import { Posts } from './components/posts/Posts';
-import { Create } from './components/posts/create-edit/Create';
+import { CreatePost } from './components/posts/create-edit/CreatePost';
 import { PostDetails } from './components/posts/post-details/PostDetails';
 import { UserProfile } from './components/user-profile/UserProfile';
 import { UserContextProvider } from './contexts/UserContext';
@@ -15,6 +15,7 @@ import { Messanger } from './components/chat/Messanger';
 import { HeaderLayout } from './components/react-router/HeaderLayout';
 import { ProtectedRoutes } from './components/react-router/ProtectedRoutes';
 import { EditUser } from './components/user-profile/EditUser';
+import { EditPost } from './components/posts/create-edit/EditPost';
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
                   <Route path='/messages' element={<Messanger />} />
                   <Route path='/posts' element={<Posts />} />
                   <Route path='/posts/:postId' element={<PostDetails />} />
-                  <Route path='/create' element={<Create />} />
+                  <Route path='/edit/posts/:postId' element={<EditPost />} />
+                  <Route path='/create' element={<CreatePost />} />
                 </Route>
               </Route>
               <Route path='/' element={<Login />} />
