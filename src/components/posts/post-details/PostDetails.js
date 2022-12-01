@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { onSnapshot, doc } from 'firebase/firestore';
 import { database } from "../../../firebaseConfig";
@@ -6,10 +6,13 @@ import { Comments } from "../comments/Comments";
 import { CommentCard } from "../comments/CommentCard";
 import { Likes } from "../likes/Likes";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../../contexts/UserContext";
 
 export const PostDetails = () => {
     const [currentPost, setCurrentPost] = useState([]);
+    const { users } = useContext(UserContext);
     const { postId } = useParams();
+    const userInfo = users.find(user => user.uid === currentPost.ownerId);
 
     useEffect(() => {
         onSnapshot(doc(database, 'posts', postId), (snapshot) => {
@@ -30,11 +33,11 @@ export const PostDetails = () => {
 
                 <div className="name__img">
                         <img
-                            src={currentPost.ownerImage}
+                            src={userInfo?.image}
                             alt=""
                         />
                     <Link to={`/profile/${currentPost.ownerId}`}>
-                        <h3 className="content__card__name">{currentPost.ownerName}</h3>
+                        <h3 className="content__card__name">{userInfo?.displayName}</h3>
                     </Link>
                     <Link to={'/posts'} className='details__close'>
                         <i className="fa fa-times-circle fa-lg" aria-hidden="true" style={{ color: "black" }}></i>

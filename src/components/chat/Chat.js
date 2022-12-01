@@ -20,10 +20,12 @@ export const Chat = () => {
 
     useEffect(() => {
         onSnapshot(doc(database, 'chats', chatId), (snapshot) => {
-            setMessages(snapshot.data().messages?.map((item) => {
-                return { ...item };
-            }));
-            setLikes(snapshot.data().likes);
+            if (snapshot.data().messages.length > 0) {
+                setMessages(snapshot.data().messages.map((item) => {
+                    return { ...item };
+                }));
+                setLikes(snapshot.data().likes);
+            }
         });
     }, [chatId]);
 
@@ -35,10 +37,10 @@ export const Chat = () => {
                     <h2>{userProfile?.displayName}</h2>
                 </div>
                 <div className="messages__container">
-                    {messages.map(message => <Messages key={message.id} message={message} likes={likes} scroll={scroll}/>)}
+                    {messages.map(message => <Messages key={message.id} message={message} likes={likes} scroll={scroll} />)}
                 </div>
                 <div className="message__input">
-                    <CreateMessage chatId={chatId} scroll={scroll}/>
+                    <CreateMessage chatId={chatId} scroll={scroll} />
                 </div>
             </section>
         </div>

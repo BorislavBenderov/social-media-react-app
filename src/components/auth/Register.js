@@ -10,7 +10,6 @@ export const Register = () => {
     const [isFileAdd, setIsFileAdd] = useState(false);
     const navigate = useNavigate();
     const { users } = useContext(UserContext);
-    console.log(users)
 
     const onRegister = (e) => {
         e.preventDefault();
