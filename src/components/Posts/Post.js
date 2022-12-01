@@ -2,14 +2,17 @@ import { deleteDoc, doc } from 'firebase/firestore';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
+import { UserContext } from '../../contexts/UserContext';
 import { database } from '../../firebaseConfig';
 import { Comments } from './comments/Comments';
 import { Likes } from './likes/Likes';
 
 export const Post = ({ post }) => {
     const { loggedUser } = useContext(AuthContext);
+    const { users } = useContext(UserContext);
 
     const userOwner = post.ownerId === loggedUser.uid;
+    const userInfo = users.find(user => user.uid === post.ownerId);
 
     const onDeletePost = async () => {
         const confirmation = window.confirm('Are you sure you want to delete this post?');
@@ -23,11 +26,11 @@ export const Post = ({ post }) => {
         <div className="content__card">
             <div className="name__img">
                 <img
-                    src={post.ownerImage}
+                    src={userInfo?.image}
                     alt=""
                 />
                 <Link to={`/profile/${post.ownerId}`}>
-                    <h3 className="content__card__name">{post.ownerName}</h3>
+                    <h3 className="content__card__name">{userInfo?.displayName}</h3>
                 </Link>
                 {userOwner
                     ? <i className="fa fa-trash fa-lg" aria-hidden="true" onClick={onDeletePost}></i>

@@ -40,8 +40,6 @@ export const Create = () => {
                             image: downloadURL,
                             timestamp: serverTimestamp(),
                             ownerId: loggedUser.uid,
-                            ownerImage: loggedUser.photoURL,
-                            ownerName: loggedUser.displayName,
                             likes: [],
                             comments: []
                         }
