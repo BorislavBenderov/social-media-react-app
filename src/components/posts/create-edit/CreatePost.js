@@ -41,7 +41,6 @@ export const CreatePost = () => {
                             timestamp: serverTimestamp(),
                             ownerId: loggedUser.uid,
                             likes: [],
-                            comments: []
                         }
                         addDoc(collection(database, 'posts'), postData)
                             .then(() => {
