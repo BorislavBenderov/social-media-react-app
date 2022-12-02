@@ -47,7 +47,7 @@ export const UserProfile = () => {
                         <h3>{userProfile?.displayName}</h3>
                         {loggedUser.uid !== userProfile?.uid
                             ? <><Followers userProfile={userProfile} />
-                                <Link to={`/messages/${combinedId}`} onClick={handleSelect}>Message</Link></>
+                                <Link className="messages__button" to={`/messages/${combinedId}`} onClick={handleSelect}>Message</Link></>
                             : <Link to={`/edit/profile/${userProfile?.uid}`}>
                                 <i className="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
                             </Link>}

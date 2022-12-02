@@ -141,6 +141,13 @@ footer {
     padding-top: 10px;
 }
 
+.followers__button, .messages__button {
+    color: black;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 2px;
+}
+
 .header__container {
     padding: 5px 0;
     border-bottom: 1px solid black;
@@ -345,6 +352,7 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .name__follow__message a {
