@@ -2,11 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import { onSnapshot, doc } from 'firebase/firestore';
 import { database } from "../../../firebaseConfig";
-import { Comments } from "../comments/Comments";
-import { CommentCard } from "../comments/CommentCard";
+import { CreateComment } from "../comments/CreateComment";
 import { Likes } from "../likes/Likes";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../../contexts/UserContext";
+import { Comments } from "../comments/Comments";
 
 export const PostDetails = () => {
     const [currentPost, setCurrentPost] = useState([]);
@@ -30,12 +30,11 @@ export const PostDetails = () => {
                 />
             </div>
             <div className="postdetails__card">
-
                 <div className="name__img">
-                        <img
-                            src={userInfo?.image}
-                            alt=""
-                        />
+                    <img
+                        src={userInfo?.image}
+                        alt=""
+                    />
                     <Link to={`/profile/${currentPost.ownerId}`}>
                         <h3 className="content__card__name">{userInfo?.displayName}</h3>
                     </Link>
@@ -47,9 +46,7 @@ export const PostDetails = () => {
                 <div className="name__description">
                     <p>{currentPost.description}</p>
                 </div>
-                <div className="comments__section">
-                    {currentPost.comments?.map(comment => <CommentCard key={comment.id} comment={comment} postId={postId} />)}
-                </div>
+                <Comments currentPost={currentPost} />
                 <div className="likes__coments">
                     <Likes post={currentPost} />
                     <i className="fa fa-comments-o fa-lg" aria-hidden="true"></i>
@@ -59,7 +56,7 @@ export const PostDetails = () => {
                         ? <p>Liked by {currentPost.likes.length} people</p>
                         : ''}
                 </div>
-                <Comments postId={currentPost.id} />
+                <CreateComment postId={currentPost.id} />
             </div>
         </section>
     );

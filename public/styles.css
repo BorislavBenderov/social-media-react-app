@@ -231,6 +231,10 @@ footer {
     color: black;
 }
 
+.like-container {
+    margin-left: 10px;
+}
+
 .name__description {
     display: flex;
     margin: 5px;

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { UserContext } from '../../contexts/UserContext';
 import { database } from '../../firebaseConfig';
-import { Comments } from './comments/Comments';
+import { CreateComment } from './comments/CreateComment';
 import { Likes } from './likes/Likes';
 
 export const Post = ({ post }) => {
@@ -56,7 +56,7 @@ export const Post = ({ post }) => {
                 <Link to={`/posts/${post.id}`}><i className="fa fa-comments-o fa-lg" aria-hidden="true"></i></Link>
             </div>
             <div className="likes__length">
-                {post.likes.length > 0
+                {post.likes?.length > 0
                     ? <p>Liked by {post.likes.length} people</p>
                     : ''}
             </div>
@@ -65,7 +65,7 @@ export const Post = ({ post }) => {
                 <p>{post.description}</p>
             </div>
             <Link className="view__all__comments" to={`/posts/${post.id}`}>view comments</Link>
-            <Comments postId={post.id} />
+            <CreateComment postId={post.id} />
         </div >
     );
 }

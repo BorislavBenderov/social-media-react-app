@@ -1,53 +1,25 @@
-import { useContext, useState } from "react";
-import { AuthContext } from '../../../contexts/AuthContext';
-import { updateDoc, doc, arrayUnion } from 'firebase/firestore';
-import { database } from "../../../firebaseConfig";
-import { v4 as uuidv4 } from 'uuid';
+import { orderBy, query, collection, onSnapshot } from 'firebase/firestore';
+import { useState, useEffect } from 'react';
+import { database } from '../../../firebaseConfig';
+import { CommentCard } from './CommentCard';
 
-export const Comments = ({ postId }) => {
-    const [input, setInput] = useState('');
-    const { loggedUser } = useContext(AuthContext);
+export const Comments = ({ currentPost }) => {
+    const [comments, setComments] = useState([]);
 
-    const onComment = (e) => {
-        e.preventDefault();
+    useEffect(() => {
+        const q = query(collection(database, 'comments'), orderBy('timestamp'));
+        onSnapshot(q, (querySnapshot) => {
+            setComments(querySnapshot.docs.map(item => {
+                return { ...item.data(), id: item.id }
+            }));
+        });
+    }, []);
 
-        if (input === '') {
-            alert('Please enter a valid comment!');
-            return;
-        }
+    const currentPostComments = comments.filter(comment => comment.commentId === currentPost.id);
 
-        updateDoc(doc(database, 'posts', postId), {
-            comments: arrayUnion({
-                comment: input,
-                ownerId: loggedUser.uid,
-                ownerImage: loggedUser.photoURL,
-                ownerName: loggedUser.displayName,
-                id: uuidv4()
-            })
-        })
-            .then(() => {
-                setInput('');
-            })
-            .catch((err) => {
-                alert(err.message);
-            })
-            
-    }
     return (
-        <div className="comment__container">
-            <form onSubmit={onComment}>
-                <label htmlFor="comment" />
-                <textarea
-                className="comment__textarea"
-                    type="text"
-                    id="comment"
-                    name="comment"
-                    placeholder="Add a comment..."
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                />
-                <button type="submit" className="post__comment__btn">post</button>
-            </form>
+        <div className="comments__section">
+            {currentPostComments?.map(comment => <CommentCard key={comment.id} comment={comment} />)}
         </div>
     );
 }
