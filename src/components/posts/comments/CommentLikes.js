@@ -31,7 +31,7 @@ export const CommentLikes = ({ comment }) => {
         <div className="like-container">
             <i className={`fa fa-heart${!comment?.likes?.includes(loggedUser?.uid) ? '-o' : ''} fa-lg`}
                 style={{ cursor: 'pointer', color: comment?.likes?.includes(loggedUser?.uid) ? 'red' : null }}
-                onClick={likeHandler}>{comment?.likes ? comment?.likes.length : 0}</i>
+                onClick={likeHandler}>{comment?.likes.length > 0 ? comment?.likes.length : ''}</i>
         </div>
     );
 }
