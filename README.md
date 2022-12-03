@@ -1,73 +1,89 @@
-![My Image](/public/images/chat.png)
+# Social Media Application with React JS
+![My Image](./public/images/profile.png)
+
+## Project Description
+
+This is social media application created with React JS. Users can interact with each other
+with comments on different posts or with messages in chat page. They can create, edit, like 
+and delete posts. Users have possibility to make comments on different posts, like comments,
+delete their comments and follow or unfollow other users.
+
+## Services
+
+### Login
+![My Image](./public/images/login.png)
+
+This service is initialized with two users, which can be used for immediate testing:
+- borko@abv.bg: 123456
+- gabi@abv.bg: 123456
+
+### Register
+![My Image](./public/images/register.png)
+
+Create a new user by entered email, username, password, confirmation password and profile picture.
+
+### Home
+![My Image](./public/images/home.png)
+
+After login or register user will be redirect to a home page. On this page user can see all users posts,
+like posts, comment posts and edit or delete his posts.
+
+### Post Details
+![My Image](./public/images/post-details.png)
+
+When user click on view comments on given post in home page he can see all details of this post. On this
+page user can like post or comments, make a comments and delete a comments.
+
+### Chat Container
+![My Image](./public/images/chat.png)
+
+When user click on the second icon in navigation panel he will see all other users. When user click on some
+other user he can chat with this user.
+
+### Messages
+![My Image](./public/images/messages.png)
+
+On this page user can chat with another user. He can send a messages and pictures. Also he can ability to like
+other user messages.
+
+### Create Post
+![My Image](./public/images/create.png)
+
+When user click on the third icon in navigation panel he will see create new post page. On this page user can
+create a post with description and picture.
+
+### User Profile
+![My Image](./public/images/profile.png)
+
+When user click on the four icon in navigation panel he will see his profile information with description (if any),
+users posts and number of posts, followers and following.
+
+### Edit Profile
+![My Image](./public/images/edit-user.png)
+
+When user click on edit icon in his profile page he can possibility to edit his username, profile description or
+profile picture.
+
+### Edit Post Description
+![My Image](./public/images/edit-post-desk.png)
+
+When user click on edit icon on some of his posts in home page or profile page, user can possibility to edit
+current post description.
+
+### Other users profiles
+![My Image](./public/images/other-profile.png)
+
+When user click on username of other user in some page he can see profile page for this user with his profile
+description (if any), posts and number of posts, followers and following. If user click on follow button he will
+follow this user. If he click again user will unfollow current user. If user click on message button he will go
+to messages page and start chat with this user.
+
+### Delete Post
+
+When user click on delete icon on some of his posts in home page or profile page, user will be asked to delete
+this post. If he confirm post will be deleted.
 
 
-# Getting Started with Create React App
+### Guest Users
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Guest users can see only login and register pages. 
