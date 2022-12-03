@@ -1,5 +1,6 @@
 import { deleteDoc, doc } from "firebase/firestore";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { UserContext } from "../../../contexts/UserContext";
 import { database } from "../../../firebaseConfig";
@@ -30,7 +31,9 @@ export const CommentCard = ({ comment }) => {
                 src={userCommentInfo.image}
                 alt=""
             />
-            <p className="comment__name">{userCommentInfo.displayName}</p>
+            <Link to={`/profile/${userCommentInfo.id}`}>
+                <p className="comment__name">{userCommentInfo.displayName}</p>
+            </Link>
             <p className="comment">{comment.text}</p>
             <CommentLikes comment={comment} />
             {commentOwner
