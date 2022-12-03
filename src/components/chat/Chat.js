@@ -7,7 +7,6 @@ import { database } from "../../firebaseConfig";
 import { CreateMessage } from "./CreateMessage";
 import { Messages } from "./Messages";
 
-
 export const Chat = () => {
     const [messages, setMessages] = useState([]);
     const [likes, setLikes] = useState([]);

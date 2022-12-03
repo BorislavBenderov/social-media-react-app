@@ -6,8 +6,8 @@ import { OtherUsers } from "./OtherUsers";
 export const Messanger = () => {
     const { users } = useContext(UserContext);
     const { loggedUser } = useContext(AuthContext);
-
     const otherUsers = users.filter(user => user.uid !== loggedUser.uid);
+
     return (
         <div className="messanger__cont">
             <section className="messanger__allusers">
