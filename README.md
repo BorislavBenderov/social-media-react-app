@@ -83,6 +83,9 @@ to messages page and start chat with this user.
 When user click on delete icon on some of his posts in home page or profile page, user will be asked to delete
 this post. If he confirm post will be deleted.
 
+### Logout
+
+When user click on five icon in navigation panel his session has expired.
 
 ### Guest Users
 
