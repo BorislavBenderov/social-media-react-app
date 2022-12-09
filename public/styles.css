@@ -535,6 +535,12 @@ textarea::-webkit-input-placeholder {
     margin-top: 10px;
 }
 
+.errors {
+    text-align: center;
+    color: red;
+    margin-top: 10px;
+}
+
 @media screen and (max-width: 1000px) {
     .postdetails__container {
         flex-direction: column;
