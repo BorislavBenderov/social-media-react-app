@@ -7,6 +7,7 @@ import { useContext, useState } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 
 export const Register = () => {
+    const [err, setErr] = useState('');
     const [isFileAdd, setIsFileAdd] = useState(false);
     const navigate = useNavigate();
     const { users } = useContext(UserContext);
@@ -25,22 +26,22 @@ export const Register = () => {
         const isUsernameInUse = users.find(user => user.displayName === username);
 
         if (email === '' || password === '' || repeatPassword === '' || image.name === '') {
-            alert('Please fill all the fields!');
+            setErr('Please fill all the fields!');
             return;
         }
 
         if (password !== repeatPassword) {
-            alert("Your password and confirmation password do not match!");
+            setErr("Your password and confirmation password do not match!");
             return;
         }
 
         if (isUsernameInUse) {
-            alert('This username is already in use!');
+            setErr('This username is already in use!');
             return;
         }
 
         if (username.length < 2 || username.length > 10) {
-            alert('Username must be more than 2 characters and less then 10!');
+            setErr('Username must be more than 2 characters and less then 10!');
             return;
         }
 
@@ -75,7 +76,7 @@ export const Register = () => {
                     })
             })
             .catch((err) => {
-                alert(err.message);
+                setErr(err.message);
             });
     }
 
@@ -118,6 +119,7 @@ export const Register = () => {
                         onChange={() => setIsFileAdd(true)}
                     />
                     <button type="submit">Register</button>
+                    <p className="errors">{err}</p>
                 </form>
             </div>
             <div className="auth__action">
