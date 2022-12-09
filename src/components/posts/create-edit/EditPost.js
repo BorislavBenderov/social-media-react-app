@@ -5,6 +5,7 @@ import { PostContext } from "../../../contexts/PostContext";
 import { database } from "../../../firebaseConfig";
 
 export const EditPost = () => {
+    const [err, setErr] = useState('');
     const { posts } = useContext(PostContext);
     const { postId } = useParams();
     const navigate = useNavigate();
@@ -27,7 +28,7 @@ export const EditPost = () => {
                 navigate('/posts');
             })
             .catch((err) => {
-                alert(err.message);
+                setErr(err.message);
             })
     }
     
@@ -46,6 +47,7 @@ export const EditPost = () => {
                         value={value.description}
                         onChange={(e) => setValue(e.target.value)} />
                     <button type="submit">Edit</button>
+                    <p className="errors">{err}</p>
                 </form>
             </div>
         </div>

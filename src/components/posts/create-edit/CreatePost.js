@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 
 export const CreatePost = () => {
+    const [err, setErr] = useState('');
     const [isFileAdd, setIsFileAdd] = useState(false);
     const { loggedUser } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -20,7 +21,7 @@ export const CreatePost = () => {
         const description = formData.get('description');
 
         if (image.name === '') {
-            alert('Please add a file!');
+            setErr('Please add a file!');
             return;
         }
 
@@ -30,7 +31,7 @@ export const CreatePost = () => {
             (snapshot) => {
             },
             (error) => {
-                alert(error.message)
+                setErr(error.message)
             },
             () => {
                 getDownloadURL(uploadTask.snapshot.ref)
@@ -47,7 +48,7 @@ export const CreatePost = () => {
                                 navigate('/posts');
                             })
                             .catch((err) => {
-                                alert(err.message);
+                                setErr(err.message);
                             })
                     });
             }
@@ -80,6 +81,7 @@ export const CreatePost = () => {
                         name="image"
                         onChange={() => setIsFileAdd(true)}
                     />
+                    <p className="errors">{err}</p>
                     <button type="submit">Create</button>
                 </form>
             </div>
