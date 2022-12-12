@@ -1,10 +1,9 @@
-import { deleteDoc, doc } from 'firebase/firestore';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { UserContext } from '../../contexts/UserContext';
-import { database } from '../../firebaseConfig';
 import { CreateComment } from './comments/CreateComment';
+import { DeletePost } from './create-edit/DeletePost';
 import { Likes } from './likes/Likes';
 
 export const Post = ({ post }) => {
@@ -13,14 +12,6 @@ export const Post = ({ post }) => {
 
     const userOwner = post.ownerId === loggedUser.uid;
     const userInfo = users.find(user => user.uid === post.ownerId);
-
-    const onDeletePost = async () => {
-        const confirmation = window.confirm('Are you sure you want to delete this post?');
-
-        if (confirmation) {
-            deleteDoc(doc(database, 'posts', post.id));
-        }
-    }
 
     return (
         <div className="content__card">
@@ -37,14 +28,13 @@ export const Post = ({ post }) => {
                         <Link to={`/edit/posts/${post.id}`}>
                             <i className="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i>
                         </Link>
-                        <i className="fa fa-trash fa-lg" aria-hidden="true" onClick={onDeletePost}></i>
+                        <DeletePost postId={post.id}/>
                     </>
                     : <>
                         <i></i>
                         <i></i>
                     </>
                 }
-
             </div>
             <img
                 className="content__card__img"
@@ -57,7 +47,7 @@ export const Post = ({ post }) => {
             </div>
             <div className="likes__length">
                 {post.likes?.length > 0
-                    ? <p>Liked by {post.likes.length} people</p>
+                    ? <Link to={`/likes/${post.id}`}><p>Liked by {post.likes.length} people</p></Link>
                     : ''}
             </div>
             <div className="name__description">
