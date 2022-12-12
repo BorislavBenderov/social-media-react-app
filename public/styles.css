@@ -563,6 +563,10 @@ textarea::-webkit-input-placeholder {
     margin-bottom: 10px;
 }
 
+.messanger__otherusers button {
+    margin-left: 30px;
+}
+
 @media screen and (max-width: 1000px) {
     .postdetails__container {
         flex-direction: column;
