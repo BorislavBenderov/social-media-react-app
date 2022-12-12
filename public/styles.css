@@ -60,6 +60,7 @@ li {
 a {
     text-decoration: none;
     display: block;
+    color: black;
 }
 
 
@@ -141,7 +142,8 @@ footer {
     padding-top: 10px;
 }
 
-.followers__button, .messages__button {
+.followers__button,
+.messages__button {
     color: black;
     border: 1px solid black;
     border-radius: 4px;
@@ -181,7 +183,8 @@ footer {
     margin: 5px;
 }
 
-.name__img img, .postdet img {
+.name__img img,
+.postdet img {
     margin-right: 10px;
     max-width: 50px;
     max-height: 50px;
@@ -539,6 +542,25 @@ textarea::-webkit-input-placeholder {
     text-align: center;
     color: red;
     margin-top: 10px;
+}
+
+.para__follow,
+.users__follow__chat {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.no__posts__show {
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: white;
+    padding: 5px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.no__posts__show p {
+    margin-bottom: 10px;
 }
 
 @media screen and (max-width: 1000px) {
