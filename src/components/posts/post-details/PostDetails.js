@@ -53,7 +53,7 @@ export const PostDetails = () => {
                 </div>
                 <div className="likes__length">
                     {currentPost.likes?.length > 0
-                        ? <p>Liked by {currentPost.likes.length} people</p>
+                        ? <Link to={`/likes/${currentPost.id}`}><p>Liked by {currentPost.likes.length} people</p></Link>
                         : ''}
                 </div>
                 <CreateComment postId={currentPost.id} />
