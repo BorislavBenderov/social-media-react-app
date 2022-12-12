@@ -19,6 +19,7 @@ import { UserFollowers } from './components/user-profile/UserFollowers';
 import { UserFollowing } from './components/user-profile/UserFollowing';
 import { PostLikes } from './components/posts/likes/PostLikes';
 import { Users } from './components/users/Users';
+import { NotFound } from './components/not-found/NotFound';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <PostContextProvider>
           <UserContextProvider>
             <Routes>
+            <Route path='*' element={<NotFound />} />
               <Route element={<ProtectedRoutes />}>
                 <Route element={<HeaderLayout />}>
                   <Route path='/profile/:userId' element={<UserProfile />} />
