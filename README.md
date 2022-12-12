@@ -24,7 +24,7 @@ This service is initialized with two users, which can be used for immediate test
 Create a new user by entered email, username, password, confirmation password and profile picture.
 
 ### Home
-![My Image](./public/images/home.png)
+![My Image](./public/images/home-min.png)
 
 After login or register user will be redirect to a home page. On this page user can see all users posts,
 like posts, comment posts and edit or delete his posts.
