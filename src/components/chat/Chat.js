@@ -19,12 +19,10 @@ export const Chat = () => {
 
     useEffect(() => {
         onSnapshot(doc(database, 'chats', chatId), (snapshot) => {
-            if (snapshot.data().messages.length > 0) {
-                setMessages(snapshot.data().messages.map((item) => {
-                    return { ...item };
-                }));
-                setLikes(snapshot.data().likes);
-            }
+            setMessages(snapshot.data()?.messages.map((item) => {
+                return { ...item };
+            }));
+            setLikes(snapshot.data()?.likes);
         });
     }, [chatId]);
 
