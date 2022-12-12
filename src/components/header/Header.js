@@ -30,6 +30,11 @@ export const Header = () => {
                     </Link>
                 </li>
                 <li>
+                    <Link to={'/users'}>
+                        <i className="fa fa-users fa-lg" aria-hidden="true"></i>
+                    </Link>
+                </li>
+                <li>
                     <Logout />
                 </li>
             </ul>
