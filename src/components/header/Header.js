@@ -1,22 +1,10 @@
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
-import { signOut } from "firebase/auth";
-import { useNavigate, Link } from "react-router-dom";
-import { auth } from "../../firebaseConfig";
+import { Link } from "react-router-dom";
+import { Logout } from "../auth/Logout";
 
 export const Header = () => {
     const { loggedUser } = useContext(AuthContext);
-    const navigate = useNavigate();
-
-    const onLogout = () => {
-        signOut(auth)
-            .then(() => {
-                navigate('/');
-            })
-            .catch((err) => {
-                alert(err.message);
-            })
-    }
 
     return (
         <header className="header__container">
@@ -42,9 +30,7 @@ export const Header = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="#" onClick={onLogout}>
-                        <i className="fa fa-sign-out fa-lg" aria-hidden="true"></i>
-                    </Link>
+                    <Logout />
                 </li>
             </ul>
         </header>
