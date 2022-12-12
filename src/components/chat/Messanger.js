@@ -12,7 +12,7 @@ export const Messanger = () => {
         <div className="messanger__cont">
             <section className="messanger__allusers">
                 <div className="messanger__curentuser">
-                    <h2>{loggedUser.displayName}</h2>
+                    <h2>{loggedUser.displayName} start chat with:</h2>
                 </div>
                 {otherUsers.map(user => <OtherUsers key={user.id} user={user} />)}
             </section>
