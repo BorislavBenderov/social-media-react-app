@@ -12,7 +12,7 @@ export const EditPost = () => {
     const currentPost = posts.find(post => post.id === postId);
 
     const [value, setValue] = useState({
-        description: currentPost.description
+        description: currentPost?.description
     });
 
     const onEditPost = (e) => {

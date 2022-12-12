@@ -120,7 +120,7 @@ export const EditUser = () => {
                         placeholder="Choose a file"
                         id="image"
                         name="image"
-                        value={values.image.name}
+                        value={values.image?.name}
                         onChange={changeHandler}
                     />
                     <button type="submit">Edit</button>
