@@ -567,6 +567,11 @@ textarea::-webkit-input-placeholder {
     margin-left: 30px;
 }
 
+.not-found-info {
+    margin: 200px auto;
+    text-align: center;
+}
+
 @media screen and (max-width: 1000px) {
     .postdetails__container {
         flex-direction: column;
