@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { UserContext } from '../../contexts/UserContext';
 import { AuthContext } from '../../contexts/AuthContext';
-import { UsersContainer } from "../user-profile/UsersContainer";
+import { UsersToFollow } from "./UsersToFollow";
 
 export const Users = () => {
     const { users } = useContext(UserContext);
@@ -15,7 +15,7 @@ export const Users = () => {
                     <h2>Users To Follow</h2>
                 </div>
                 {usersToFollow.length > 0
-                    ? usersToFollow.map(user => <UsersContainer key={user.id} user={user} />)
+                    ? usersToFollow.map(user => <UsersToFollow key={user.id} user={user} />)
                     : <p className="users__follow__chat">There are no users to follow!</p>}
             </section>
         </div>
