@@ -1,0 +1,643 @@
+/* RESET CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+    transition: all 0.5s ease;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Inter", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: black;
+}
+
+body {
+    background-color: rgba(173, 216, 230, 0.266);
+    -webkit-font-smoothing: antialiased;
+    font-family: 'roboto', sans-serif;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    object-fit: cover;
+}
+
+input,
+button,
+select {
+    font: inherit;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+
+a {
+    text-decoration: none;
+    display: block;
+    color: black;
+}
+
+
+/* MAIN CSS */
+.auth {
+    width: 335px;
+    margin: 50px auto;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+.auth__container {
+    background-color: white;
+    padding: 10px 40px 100px 40px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+.auth__container h1 {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.auth__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth__form input,
+.auth__form textarea {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+.auth__form textarea {
+    height: 200px;
+}
+
+.auth__form input::placeholder {
+    font-weight: 500;
+    font-size: small;
+}
+
+.auth__form button {
+    background-color: rgba(17, 17, 255, 0.527);
+    color: white;
+    font-weight: 600;
+    margin-top: 20px;
+    border-radius: 8px;
+    padding: 5px 10px;
+}
+
+.auth__action {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 5px 0;
+}
+
+.auth__action a {
+    color: rgba(17, 17, 255, 0.527);
+    font-weight: 600;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 5px;
+    padding-top: 10px;
+}
+
+.followers__button,
+.messages__button {
+    color: black;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.header__container {
+    padding: 5px 0;
+    border-bottom: 1px solid black;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+}
+
+.nav>li {
+    list-style: none;
+    margin-left: 10px;
+}
+
+.nav>li>a {
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.content__container {
+    width: 400px;
+    margin: auto;
+}
+
+.name__img {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+}
+
+.name__img img,
+.postdet img {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.postdet {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+
+.fa-trash {
+    cursor: pointer;
+}
+
+.fa-pencil-square-o {
+    cursor: pointer;
+    color: black;
+}
+
+.content__card {
+    border: 1px solid black;
+    border-radius: 16px;
+    background-color: white;
+    width: 400px;
+    margin-top: 20px;
+}
+
+.content__card__img {
+    width: 398px;
+}
+
+.likes__coments {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.likes__coments p {
+    margin: 5px
+}
+
+.likes__coments i {
+    margin-right: 5px;
+    color: black;
+}
+
+.like-container {
+    margin-left: 10px;
+}
+
+.name__description {
+    display: flex;
+    margin: 5px;
+    align-items: center;
+}
+
+.name__description p {
+    margin-left: 5px;
+}
+
+.view__all__comments {
+    margin-left: 5px;
+}
+
+.comment__container {
+    padding: 5px;
+}
+
+.comment__container form {
+    display: flex;
+}
+
+.comment__textarea {
+    resize: none;
+    width: 90%;
+    height: 60px;
+    border-radius: 16px;
+    padding-left: 20px;
+}
+
+.post__comment__btn {
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+button {
+    color: rgba(17, 17, 255, 0.527);
+}
+
+.postdetails__container {
+    display: flex;
+    width: 1000px;
+    margin: auto;
+}
+
+.postdetails__image {
+    margin-top: 20px;
+    width: 50%;
+}
+
+.postdetails__image img {
+    border-radius: 16px 0 0 16px;
+}
+
+.postdetails__card {
+    border-radius: 0 16px 16px 0;
+    background-color: white;
+    border: 1px solid black;
+    width: 50%;
+    margin-top: 20px;
+}
+
+.comment__img {
+    max-width: 50px;
+}
+
+.comments__section {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 300px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.comment__name {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.delete__comment {
+    margin-left: 10px;
+}
+
+.likes__length {
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.profile__info {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 16px 16px 0 0;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: white;
+}
+
+.profile__info__img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.profile__info__img img {
+    border-radius: 50%;
+}
+
+.posts__followers {
+    display: flex;
+    justify-content: space-between;
+}
+
+.posts__followers p {
+    margin-right: 20px;
+}
+
+.name__follow__message {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.name__follow__message a {
+    color: black;
+}
+
+.messanger {
+    display: flex;
+    background-color: white;
+    max-width: 500px;
+    height: 600px;
+    margin: auto;
+    margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 16px;
+}
+
+.messanger__users {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    border: 1px solid black;
+}
+
+.messanger__users img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.messanger__otherusers {
+    display: flex;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 16px;
+    margin-top: 10px;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.messanger__curentuser {
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.messanger__currusers {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 16px;
+    margin-top: 10px;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.messanger__messages {
+    width: 100%;
+}
+
+.messages__container {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid black;
+    height: 450px;
+    overflow: auto;
+}
+
+.message {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.message p {
+    color: white;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.message__photo {
+    width: 200px;
+    height: 150px;
+    border-radius: 8px;
+}
+
+.message__img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.messanger__cont {
+    display: flex;
+    background-color: white;
+    max-width: 400px;
+    height: 600px;
+    margin: auto;
+    margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 16px;
+}
+
+.messanger__allusers {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: auto;
+}
+
+.messanger__allusers img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.nav>li>a:focus {
+    background-color: rgba(17, 17, 255, 0.527);
+    color: white;
+    border: 1px solid black;
+    border-radius: 16px;
+}
+
+.otheruser__mess__img {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 5px 0;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.message__input form {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.textarea {
+    resize: none;
+    width: 90%;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 16px;
+    height: 70px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.textarea__post {
+    resize: none;
+}
+
+textarea::-webkit-input-placeholder {
+    position: absolute;
+    left: 20px;
+}
+
+.send {
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.profile__description {
+    width: 278px;
+    margin-top: 10px;
+}
+
+.errors {
+    text-align: center;
+    color: red;
+    margin-top: 10px;
+}
+
+.para__follow,
+.users__follow__chat {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.no__posts__show {
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: white;
+    padding: 5px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.no__posts__show p {
+    margin-bottom: 10px;
+}
+
+.messanger__otherusers button {
+    margin-left: 30px;
+}
+
+.not-found-info {
+    margin: 200px auto;
+    text-align: center;
+}
+
+.not-found-info a {
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+    .postdetails__container {
+        flex-direction: column;
+        width: 400px;
+    }
+
+    .postdetails__image {
+        width: 400px;
+
+    }
+
+    .postdetails__image img {
+        border-radius: 16px 16px 0 0;
+    }
+
+    .postdetails__card {
+        margin-top: 0;
+        border-radius: 0 0 16px 16px;
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .content__container {
+        width: 350px;
+    }
+
+    .content__card {
+        width: 350px;
+    }
+
+    .content__card__img {
+        width: 348px;
+    }
+
+    .postdetails__container {
+        width: 300px;
+    }
+
+    .postdetails__image {
+        width: 300px;
+    }
+
+    .postdetails__card {
+        width: 300px;
+    }
+
+    .details__close {
+        margin-left: 95px;
+    }
+
+    .textarea__post {
+        width: 255px;
+    }
+
+    .messanger__cont {
+        max-width: 320px;
+        height: 550px;
+    }
+
+    .profile__description {
+        width: 235px;
+    }
+
+}
