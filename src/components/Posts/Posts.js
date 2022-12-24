@@ -6,7 +6,7 @@ import { UserContext } from '../../contexts/UserContext';
 import { Post } from './Post';
 
 export const Posts = () => {
-    const { posts } = useContext(PostContext);
+    const { posts, isLoading } = useContext(PostContext);
     const { users } = useContext(UserContext);
     const { loggedUser } = useContext(AuthContext);
     const currentUsersPosts = posts.filter(post => post.ownerId === loggedUser.uid);
@@ -16,16 +16,18 @@ export const Posts = () => {
     return (
         <main>
             <section className="content__container">
-                {followedUsersPosts.length > 0
-                    ? followedUsersPosts.map(post => <Post key={post.id} post={post} />)
-                    : <div className='no__posts__show'>
-                        <p>There are no posts to show.</p>
-                        <p>Start follow users!</p>
-                        <Link to='/users'>
-                            <p>Click Here!</p>
-                            <i className="fa fa-users fa-lg" aria-hidden="true"></i>
-                        </Link>
-                    </div>}
+                {isLoading
+                    ? followedUsersPosts.length > 0
+                        ? followedUsersPosts.map(post => <Post key={post.id} post={post} />)
+                        : <div className='no__posts__show'>
+                            <p>There are no posts to show.</p>
+                            <p>Start follow users!</p>
+                            <Link to='/users'>
+                                <p>Click Here!</p>
+                                <i className="fa fa-users fa-lg" aria-hidden="true"></i>
+                            </Link>
+                        </div>
+                    : <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>}
             </section>
         </main>
     );

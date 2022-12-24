@@ -6,6 +6,7 @@ export const PostContext = createContext();
 
 export const PostContextProvider = ({ children }) => {
     const [posts, setPosts] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const q = query(collection(database, 'posts'), orderBy("timestamp", 'desc'))
@@ -13,11 +14,12 @@ export const PostContextProvider = ({ children }) => {
             setPosts(snapshot.docs.map((item) => {
                 return { ...item.data(), id: item.id }
             }));
+            setIsLoading(true);
         });
     }, []);
 
     return (
-        <PostContext.Provider value={{ posts }}>
+        <PostContext.Provider value={{ posts, isLoading }}>
             {children}
         </PostContext.Provider>
     );
