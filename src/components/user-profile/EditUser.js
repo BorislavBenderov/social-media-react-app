@@ -96,9 +96,6 @@ export const EditUser = () => {
                         })
                         .catch((err) => {
                             setErr(err.message);
-                            setTimeout(() => {
-                                setErr('');
-                            }, 3000);
                         })
                 })
         }
