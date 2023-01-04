@@ -49,6 +49,9 @@ export const CreatePost = () => {
                             })
                             .catch((err) => {
                                 setErr(err.message);
+                                setTimeout(() => {
+                                    setErr('');
+                                }, 3000);
                             })
                     });
             }

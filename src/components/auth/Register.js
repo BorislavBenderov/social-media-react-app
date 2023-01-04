@@ -77,6 +77,9 @@ export const Register = () => {
             })
             .catch((err) => {
                 setErr(err.message);
+                setTimeout(() => {
+                    setErr('');
+                }, 3000);
             });
     }
 

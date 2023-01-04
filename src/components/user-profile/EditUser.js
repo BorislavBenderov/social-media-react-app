@@ -12,6 +12,7 @@ export const EditUser = () => {
     const { loggedUser } = useContext(AuthContext);
     const { userId } = useParams();
     const navigate = useNavigate();
+    const [err, setErr] = useState('');
     const currentUser = users.find(user => user.uid === userId);
     const [values, setValues] = useState({
         username: currentUser?.displayName,
@@ -94,7 +95,10 @@ export const EditUser = () => {
                                 })
                         })
                         .catch((err) => {
-                            alert(err.message);
+                            setErr(err.message);
+                            setTimeout(() => {
+                                setErr('');
+                            }, 3000);
                         })
                 })
         }
@@ -124,6 +128,7 @@ export const EditUser = () => {
                         onChange={changeHandler}
                     />
                     <button type="submit">Edit</button>
+                    <p className="errors">{err}</p>
                 </form>
             </div>
         </div>

@@ -29,9 +29,12 @@ export const EditPost = () => {
             })
             .catch((err) => {
                 setErr(err.message);
+                setTimeout(() => {
+                    setErr('');
+                }, 3000);
             })
     }
-    
+
     return (
         <div className="auth">
             <div className="auth__container">
